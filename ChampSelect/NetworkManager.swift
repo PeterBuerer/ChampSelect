@@ -9,10 +9,10 @@
 import Alamofire
 import Foundation
 
-typealias NetworkManagerChampListCompletion = ([String : AnyObject]?) -> ()
-typealias NetworkManagerChampInfoCompletion = ([String : AnyObject]?) -> ()
-typealias NetworkManagerCDNCompletion = (String?) -> ()
-typealias NetworkManagerChampImageCompletion = (UIImage?) -> ()
+typealias NetworkManagerChampListCompletion = (listDataDictionary: [String : AnyObject]?) -> ()
+typealias NetworkManagerChampInfoCompletion = (champInfoDictionary: [String : AnyObject]?) -> ()
+typealias NetworkManagerCDNCompletion = (cdnURL: String?, cdnVersion: String?) -> ()
+typealias NetworkManagerChampImageCompletion = (champImage: UIImage?) -> ()
 
 let APIKey = "0836a23b-2084-4ad1-bbcf-a9fca10efeae"
 
@@ -41,37 +41,28 @@ class NetworkManager {
     
     static let defaultNetworkManager = NetworkManager()
     
+    static var cdnURL = "http://ddragon.leagueoflegends.com/cdn"
+    static var cdnVersion = "5.19.1"
+    static var apiVersion = "v1.2" //TODO: check to see if api version is up to date
+   
+    
+    //==========================================================================
+    // MARK: - Champ Information Requests
+    //==========================================================================
+
     func fullChampListRequest(completion: NetworkManagerChampListCompletion) {
-        Alamofire.request(.GET, "https://na.api.pvp.net/api/lol/static-data/na/v1.2/champion/", parameters: ["api_key" : APIKey, "champData": "all"])
+        Alamofire.request(.GET, "https://na.api.pvp.net/api/lol/static-data/na/\(NetworkManager.apiVersion)/champion/", parameters: ["api_key" : APIKey, "champData": "all"])
             .responseJSON { response in
                 //print("Data \(response.data) \n")     // server data
                 print("Result \(response.result) \n")   // result of response serialization
                 
                 guard let json = response.result.value as? [String : AnyObject], data = json["data"] as? [String : AnyObject] else {
-                    completion(nil)
+                    completion(listDataDictionary: nil)
                     return
                 }
                 
 //                print("JSON: \(json) \n")
-                completion(data)
-        }
-    }
-    
-    func cdnRequest(completion: NetworkManagerCDNCompletion) {
-        Alamofire.request(.GET, "https://global.api.pvp.net/api/lol/static-data/na/v1.2/realm", parameters: ["api_key" : APIKey])
-            .responseJSON { response in
-                print("Request \(response.request) \n")  // original URL request
-                print("Response \(response.response) \n") // URL response
-                print("Data \(response.data) \n")     // server data
-                print("Result \(response.result) \n")   // result of response serialization
-                
-                guard let json = response.result.value as? [String : AnyObject], cdn = json["cdn"] as? String else {
-                    completion(nil)
-                    return
-                }
-                
-                completion(cdn)
-                print("JSON: \(json) \n")
+                completion(listDataDictionary: data)
         }
     }
     
@@ -81,19 +72,19 @@ class NetworkManager {
       
         var url: NSURL?
       
-        //TODO: replace hardcoded CDN version with version pull from realm
+        //TODO: replace hardcoded CDN + CDN version with version pulled from realm
         switch imageType {
-        case .Square:
-            url = NSURL(string: "http://ddragon.leagueoflegends.com/cdn/5.19.1/img/champion/\(imageName)?api_key=\(APIKey)")
-        default:
-            //create skin url string
-            let imageNameNSString = NSString(string: imageName)
-            let baseImageName = String(imageNameNSString.stringByDeletingPathExtension)
-            url = NSURL(string: "http://ddragon.leagueoflegends.com/cdn/img/champion/\(imageType)/\(baseImageName)_\(skinNumber)\(fileExtension)?api_key=\(APIKey)")
+            case .Square:
+                 url = NSURL(string: "\(NetworkManager.cdnURL)/\(NetworkManager.cdnVersion)/img/champion/\(imageName)?api_key=\(APIKey)")
+             default:
+                 //create skin url string
+                 let imageNameNSString = NSString(string: imageName)
+                 let baseImageName = String(imageNameNSString.stringByDeletingPathExtension)
+                 url = NSURL(string: "\(NetworkManager.cdnURL)/img/champion/\(imageType)/\(baseImageName)_\(skinNumber)\(fileExtension)?api_key=\(APIKey)")
         }
        
         guard let completeURL = url else {
-            completion(nil)
+            completion(champImage: nil)
             return
         }
         
@@ -103,12 +94,12 @@ class NetworkManager {
             requestOperation.setCompletionBlockWithSuccess({ (operation, responseObject) -> Void in
                 guard let image = responseObject as? UIImage else {
                     print("got something that wasn't an image")
-                    completion(nil)
+                    completion(champImage: nil)
                     return
                 }
                 
                 print("got image")
-                completion(image)
+                completion(champImage: image)
                 
             }, failure: { (operation, error) -> Void in
                 print("Error: \(error.localizedDescription)")
@@ -124,4 +115,38 @@ class NetworkManager {
         //pass into completion
         
     }
+    
+    
+    //==========================================================================
+    // MARK: - CDN Requests
+    //==========================================================================
+    
+    static func cdnRequest(completion: NetworkManagerCDNCompletion) {
+        Alamofire.request(.GET, "https://global.api.pvp.net/api/lol/static-data/na/\(NetworkManager.apiVersion)/realm", parameters: ["api_key" : APIKey])
+            .responseJSON { response in
+                print("Request \(response.request) \n")  // original URL request
+                print("Response \(response.response) \n") // URL response
+                print("Data \(response.data) \n")     // server data
+                print("Result \(response.result) \n")   // result of response serialization
+                
+                guard let json = response.result.value as? [String : AnyObject], newCDNURL = json["cdn"] as? String, newCDNVersion = json["v"] as? String else {
+                    completion(cdnURL: nil, cdnVersion: nil)
+                    return
+                }
+                
+                completion(cdnURL: newCDNURL, cdnVersion: newCDNVersion)
+                newCDNVersion
+                print("JSON: \(json) \n")
+        }
+    }
+    
+    static func updateCDN() {
+        NetworkManager.cdnRequest { (newCDNURL, newCDNVersion) -> () in
+            guard let cdnURL = newCDNURL, cdnVersion = newCDNVersion else { return }
+            
+            NetworkManager.cdnURL = cdnURL
+            NetworkManager.cdnVersion = cdnVersion
+        }
+    }
+    
 }

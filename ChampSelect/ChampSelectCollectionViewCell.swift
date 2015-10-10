@@ -19,10 +19,9 @@ class ChampSelectCollectionViewCell: UICollectionViewCell {
     
         let views = ["image": imageView, "title": titleLabel]
         
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[image]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
         NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[image]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
         
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[title(<=48.0)]-(16.0)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
+        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[image]-(8.0)-[title(>=16.0)]-(8.0)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
         NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(16.0)-[title]-(16.0)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
     }
   
@@ -43,6 +42,7 @@ class ChampSelectCollectionViewCell: UICollectionViewCell {
         
         label.numberOfLines = 0
         label.lineBreakMode = .ByWordWrapping
+        label.textAlignment = .Center
         
         return label
     }()

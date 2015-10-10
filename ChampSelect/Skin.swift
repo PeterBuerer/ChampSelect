@@ -12,6 +12,7 @@ class Skin {
     var id = 0
     var name = "default"
     var number = 0
+    var image: UIImage? //TODO: use this for champ images
     
     init(id: Int, name: String, number: Int) {
         self.id = id

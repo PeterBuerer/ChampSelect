@@ -14,7 +14,11 @@ typealias ChampManagerImageCompletion = (UIImage?) -> ()
 class ChampManager {
     
 //    var champs = [Champ]() //TODO: use this or get rid of it
-    
+   
+    //==========================================================================
+    // MARK: - Singleton 
+    //==========================================================================
+
     static let defaultChampManager = ChampManager()
     
     func updateChampInfo(completion: ChampManagerChampListCompletion) {

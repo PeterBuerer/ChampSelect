@@ -37,6 +37,7 @@ class ChampSelectCollectionViewController: UICollectionViewController {
         updateChamps()
         
         collectionView?.backgroundColor = UIColor.whiteColor()
+        navigationItem.title = "Champ Select"
     }
    
     //==========================================================================
@@ -56,7 +57,6 @@ class ChampSelectCollectionViewController: UICollectionViewController {
 
         let champ = champs[indexPath.item]
         
-        cell.contentView.backgroundColor = UIColor.blueColor()
         cell.titleLabel.text = champ.name
         cell.imageView.image = champ.image
         
@@ -147,9 +147,9 @@ class ChampSelectCollectionViewController: UICollectionViewController {
     lazy var flowlayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
        
-        layout.minimumInteritemSpacing = 32.0;
-        layout.minimumLineSpacing = 32.0;
-        layout.itemSize = CGSize(width: 128.0, height: 128.0)
+        layout.minimumInteritemSpacing = 16.0;
+        layout.minimumLineSpacing = 16.0;
+        layout.itemSize = CGSize(width: 144.0, height: 144.0)
         
         return layout
     }()

@@ -15,12 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-       
+     
+        NetworkManager.updateCDN()
+        
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.makeKeyAndVisible()
         
         let champSelectVC = ChampSelectCollectionViewController(collectionViewLayout: UICollectionViewLayout())
         let navController = UINavigationController(rootViewController: champSelectVC)
+        navController.title = "Champ Select"
         
         window?.rootViewController = navController
         
