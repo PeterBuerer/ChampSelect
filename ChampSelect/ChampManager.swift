@@ -8,8 +8,25 @@
 
 import Foundation
 
+typealias ChampManagerChampListCompletion = ([Champ]) -> ()
+
 class ChampManager {
-    static func champsFromJSON(json: [String : AnyObject]) -> [Champ] {
+    
+//    var champs = [Champ]()
+    
+    static let defaultChampManager = ChampManager()
+    
+    func updateChamps(completion: ChampManagerChampListCompletion) {
+        NetworkManager.defaultNetworkManager.champListRequest() { [weak self] (champList: [String : AnyObject]) in
+            guard let strongSelf = self else { return }
+            
+            let newChamps = strongSelf.champsFromJSON(champList)
+//                strongSelf.champs = newChamps
+            completion(newChamps)
+        }
+    }
+    
+    func champsFromJSON(json: [String : AnyObject]) -> [Champ] {
         var champs = [Champ]()
         for value in json.values {
             if let champDictionary = value as? [String: AnyObject] {
@@ -24,6 +41,10 @@ class ChampManager {
                 
                 champs.append(champ)
             }
+        }
+       
+        champs.sortInPlace { (left, right) -> Bool in
+            return left.name < right.name
         }
         
         return champs

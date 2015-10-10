@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D00C196B1BC85CE2009F72F7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00C196A1BC85CE2009F72F7 /* NetworkManager.swift */; settings = {ASSET_TAGS = (); }; };
 		D07225241BC5ECB600E99D4E /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D07224FF1BC5ECB600E99D4E /* AFHTTPRequestOperation.m */; settings = {ASSET_TAGS = (); }; };
 		D07225251BC5ECB600E99D4E /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D07225011BC5ECB600E99D4E /* AFHTTPRequestOperationManager.m */; settings = {ASSET_TAGS = (); }; };
 		D07225261BC5ECB600E99D4E /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D07225031BC5ECB600E99D4E /* AFHTTPSessionManager.m */; settings = {ASSET_TAGS = (); }; };
@@ -111,6 +112,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D00C196A1BC85CE2009F72F7 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D037BE791BC5926A0021D107 /* ChampSelect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChampSelect-Bridging-Header.h"; sourceTree = "<group>"; };
 		D07224FE1BC5ECB600E99D4E /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		D07224FF1BC5ECB600E99D4E /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -193,6 +195,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D00C19651BC85CC0009F72F7 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D00C196A1BC85CE2009F72F7 /* NetworkManager.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		D037BE741BC5922D0021D107 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +291,7 @@
 				D07224FD1BC5ECB600E99D4E /* AFNetworking */,
 				D07225111BC5ECB600E99D4E /* UIKit+AFNetworking */,
 				D037BE741BC5922D0021D107 /* Supporting Files */,
+				D00C19651BC85CC0009F72F7 /* Networking */,
 				D0F936D61BC4126A00496F10 /* Model */,
 				D0F936D31BC40D3C00496F10 /* ChampSelectCollection */,
 				D0C0FFC91BC2FF0E00195777 /* AppDelegate.swift */,
@@ -514,6 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D00C196B1BC85CE2009F72F7 /* NetworkManager.swift in Sources */,
 				D07225291BC5ECB600E99D4E /* AFURLConnectionOperation.m in Sources */,
 				D07225241BC5ECB600E99D4E /* AFHTTPRequestOperation.m in Sources */,
 				D07225301BC5ECB600E99D4E /* UIButton+AFNetworking.m in Sources */,

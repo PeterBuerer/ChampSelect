@@ -35,11 +35,14 @@ class ChampSelectCollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view, typically from a nib.
      
         getChamps()
-        getCDN()
         
         collectionView?.backgroundColor = UIColor.whiteColor()
     }
-    
+   
+    //==========================================================================
+    // MARK: - UICollectionViewDataSource
+    //==========================================================================
+
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -60,52 +63,25 @@ class ChampSelectCollectionViewController: UICollectionViewController {
     }
    
     //==========================================================================
-    // MARK: - TEMPNETWORKING
+    // MARK: - ChampDataSource
     //==========================================================================
 
     func getChamps() {
+        let completion = { [weak self] (champList: [Champ]) in
+            guard let strongSelf = self else { return }
         
-        Alamofire.request(.GET, "https://na.api.pvp.net/api/lol/static-data/na/v1.2/champion/", parameters: ["api_key" : "0836a23b-2084-4ad1-bbcf-a9fca10efeae", "champData": "all"])
-            .responseJSON { [weak self] response in
-                //print("Request \(response.request) \n")  // original URL request
-                //print("Response \(response.response) \n") // URL response
-                //print("Data \(response.data) \n")     // server data
-                print("Result \(response.result) \n")   // result of response serialization
-                
-                if let JSON = response.result.value as? [String : AnyObject], data = JSON["data"] as? [String : AnyObject] {
-                    print("JSON: \(JSON) \n")
-                    
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self?.champs = ChampManager.champsFromJSON(data)
-                        if let darius = data["Darius"] as? [String : AnyObject], let champName = darius["name"] {
-                            print("Champ Name: \(champName)")
-                        }
-                        
-                        self?.getChampImages()
-                        self?.collectionView?.reloadData()
-                    })
-                    
-                }
+            strongSelf.champs = champList //ChampManager.champsFromJSON(data) //TODO: make right connections here
+            
+//            self?.getChampImages() //TODO: do this somehow
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                strongSelf.collectionView?.reloadData()
+            })
         }
+        
+        ChampManager.defaultChampManager.updateChamps(completion)
     }
-   
-    func getCDN() {
-        Alamofire.request(.GET, "https://global.api.pvp.net/api/lol/static-data/na/v1.2/realm", parameters: ["api_key" : "0836a23b-2084-4ad1-bbcf-a9fca10efeae"])
-            .responseJSON { [weak self] response in
-                //print("Request \(response.request) \n")  // original URL request
-                //print("Response \(response.response) \n") // URL response
-                //print("Data \(response.data) \n")     // server data
-                print("Result \(response.result) \n")   // result of response serialization
-                
-                if let JSON = response.result.value as? [String : AnyObject] {
-                    print("JSON: \(JSON) \n")
-                    
-//                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                    }
-                    
-                    }
-        }
-    }
+    
+
     
     func getChampImages() {
        
