@@ -12,6 +12,6 @@ class Champ {
     var name = ""
     var idNumber = 0
     var imageName: String = ""
-    var image: UIImage?
+    var iconImage: UIImage?
     var skins = [String : Skin]()
 }

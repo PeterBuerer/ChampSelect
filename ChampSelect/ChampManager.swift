@@ -51,8 +51,8 @@ class ChampManager {
                     champ.imageName = imageName
                 }
                 
-                if let skinsJSON = champDictionary["skins"] as? [String : AnyObject] {
-                    for skin in skinsJSON.values {
+                if let skinsJSON = champDictionary["skins"] as? [[String : AnyObject]] {
+                    for skin in skinsJSON {
                         if let id = skin["id"] as? Int, name = skin["name"] as? String, number = skin["num"] as? Int {
                             let newSkin = Skin(id: id, name: name, number: number)
                             champ.skins[name] = newSkin
@@ -71,16 +71,15 @@ class ChampManager {
         return champs
     }
     
-    func champDefaultImage(imageName: String, completion: ChampManagerImageCompletion) {
-        NetworkManager.defaultNetworkManager.champImageRequest(imageName, imageType: ChampImageType.Square, skinNumber: 0) { (image) -> () in
-            guard let image = image else {
-                completion(nil)
-                return
-            }
-            
+    func champIconImage(imageName: String, completion: ChampManagerImageCompletion) {
+        NetworkManager.defaultNetworkManager.champImageRequest(imageName, imageType: .Square, skinNumber: 0) { (image) -> () in
             completion(image)
         }
     }
-    
-    
+   
+    func champLoadingScreenImage(imageName: String, skinNumber: Int, completion: ChampManagerImageCompletion) {
+        NetworkManager.defaultNetworkManager.champImageRequest(imageName, imageType: .Loading, skinNumber: skinNumber) { (champImage) -> () in
+            completion(champImage)
+        }
+    }
 }

@@ -55,6 +55,6 @@ class ChampSelectCollectionViewCell: UICollectionViewCell {
     }()
     
     required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented. Storyboards will burn")
+        fatalError("init(coder:) has not been implemented")
     }
 }

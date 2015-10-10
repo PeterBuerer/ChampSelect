@@ -80,7 +80,7 @@ class NetworkManager {
                  //create skin url string
                  let imageNameNSString = NSString(string: imageName)
                  let baseImageName = String(imageNameNSString.stringByDeletingPathExtension)
-                 url = NSURL(string: "\(NetworkManager.cdnURL)/img/champion/\(imageType)/\(baseImageName)_\(skinNumber)\(fileExtension)?api_key=\(APIKey)")
+                 url = NSURL(string: "\(NetworkManager.cdnURL)/img/champion/\(imageType.rawValue)/\(baseImageName)_\(skinNumber)\(fileExtension)?api_key=\(APIKey)")
         }
        
         guard let completeURL = url else {
@@ -120,7 +120,8 @@ class NetworkManager {
     //==========================================================================
     // MARK: - CDN Requests
     //==========================================================================
-    
+   
+    //TODO: hook up notifications or something to trigger updates when a new cdn Version is pulled
     static func cdnRequest(completion: NetworkManagerCDNCompletion) {
         Alamofire.request(.GET, "https://global.api.pvp.net/api/lol/static-data/na/\(NetworkManager.apiVersion)/realm", parameters: ["api_key" : APIKey])
             .responseJSON { response in
@@ -135,7 +136,6 @@ class NetworkManager {
                 }
                 
                 completion(cdnURL: newCDNURL, cdnVersion: newCDNVersion)
-                newCDNVersion
                 print("JSON: \(json) \n")
         }
     }

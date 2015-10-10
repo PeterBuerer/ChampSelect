@@ -26,10 +26,6 @@ class ChampSelectCollectionViewController: UICollectionViewController {
         collectionView?.contentInset = UIEdgeInsets(top: collectionInset, left: collectionInset, bottom: collectionInset, right: collectionInset)
     }
     
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented. Storyboards will burn")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -58,8 +54,7 @@ class ChampSelectCollectionViewController: UICollectionViewController {
         let champ = champs[indexPath.item]
         
         cell.titleLabel.text = champ.name
-        cell.imageView.image = champ.image
-        
+        cell.imageView.image = champ.iconImage
         return cell
     }
    
@@ -88,42 +83,20 @@ class ChampSelectCollectionViewController: UICollectionViewController {
     func updateAllChampImages() {
        
         for (index, champ) in champs.enumerate() {
-            ChampManager.defaultChampManager.champDefaultImage(champ.imageName, completion: { [weak self] (image) -> () in
+            ChampManager.defaultChampManager.champIconImage(champ.imageName, completion: { [weak self] (image) -> () in
                 guard let image = image, strongSelf = self else { return }
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    strongSelf.champs[index].image = image
+                    strongSelf.champs[index].iconImage = image
                     strongSelf.collectionView?.reloadItemsAtIndexPaths([NSIndexPath(forItem: index, inSection: 0)]) //TODO: find a way to make this not a hard coded number
                 })
             })
-            
-            //TODO: replace cdn version dynamically
-//            Alamofire.request(.GET, "http://ddragon.leagueoflegends.com/cdn/5.19.1/img/champion/\(champ.name).png", parameters:nil).responseData({ response in
-//                
-//                if let rawResponseImage = response.result.value, image = UIImage(data:rawResponseImage){
-//                    let newImage = image
-//                }
-            
-//                if let data = response.result.value {
-//                    if let image = UIImage(data: data) {
-//                        let newImage = image
-//                    }
-//                }
-//            })
-            
-                //
-//                    if let JSON = response.result.value as? [String : AnyObject], data = JSON["data"] as? [String : AnyObject] {
-//                        if let champDictionary = data["Darius"] as? [String : AnyObject], image = champDictionary["image"] as? UIImage {
-//                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                                
-//                                if let id = champDictionary["id"] as? Int {
-//                                    self?.champs.filter({ $0.idNumber == id }).map({ $0.image = image })
-//                                    
-//                                    self?.collectionView?.reloadData()
-//                                }
-//                            })
-//                        }
-//                    }
-            }
+           
+            //load default skin image
+            ChampManager.defaultChampManager.champLoadingScreenImage(champ.imageName, skinNumber: 0, completion: { [weak self] (image) -> () in
+                guard let strongSelf = self where strongSelf.champs[index].skins.count > 0 else { return }
+                strongSelf.champs[index].skins["default"]?.image = image
+            })
+        }
         
     }
    
@@ -132,11 +105,10 @@ class ChampSelectCollectionViewController: UICollectionViewController {
     //==========================================================================
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let champPage = ChampInfoViewController()
-        champPage.nameLabel.text = champs[indexPath.item].name
-        
-//        presentViewController(navigationController, animated: true, completion: nil) //TODO: use this instead of push
-        navigationController?.pushViewController(champPage, animated: true)
+        let champPage = ChampInfoViewController(champ: champs[indexPath.item])
+       
+        let navController = UINavigationController(rootViewController: champPage)
+        presentViewController(navController, animated: true, completion: nil) //TODO: use this instead of push
     }
 
     
@@ -154,4 +126,8 @@ class ChampSelectCollectionViewController: UICollectionViewController {
         return layout
     }()
 
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
