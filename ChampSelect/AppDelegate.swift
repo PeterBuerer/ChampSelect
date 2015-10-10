@@ -20,8 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         let champSelectVC = ChampSelectCollectionViewController(collectionViewLayout: UICollectionViewLayout())
+        let navController = UINavigationController(rootViewController: champSelectVC)
         
-        window?.rootViewController = champSelectVC
+        window?.rootViewController = navController
         
         return true
     }

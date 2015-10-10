@@ -25,7 +25,17 @@ class ChampSelectCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[title(<=48.0)]-(16.0)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
         NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(16.0)-[title]-(16.0)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
     }
+  
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        titleLabel.text = nil
+        imageView.image = nil
+    }
     
+    //==========================================================================
+    // MARK: - Views
+    //==========================================================================
+
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -43,8 +53,6 @@ class ChampSelectCollectionViewCell: UICollectionViewCell {
         
         return view
     }()
-    
-    
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented. Storyboards will burn")

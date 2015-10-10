@@ -10,5 +10,6 @@
 #define ChampSelect_Bridging_Header_h
 
 #import "AFNetworking.h"
+#import "UIKit+AFNetworking.h"
 
 #endif /* ChampSelect_Bridging_Header_h */

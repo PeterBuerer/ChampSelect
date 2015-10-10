@@ -34,7 +34,7 @@ class ChampSelectCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
      
-        getChamps()
+        updateChamps()
         
         collectionView?.backgroundColor = UIColor.whiteColor()
     }
@@ -58,6 +58,7 @@ class ChampSelectCollectionViewController: UICollectionViewController {
         
         cell.contentView.backgroundColor = UIColor.blueColor()
         cell.titleLabel.text = champ.name
+        cell.imageView.image = champ.image
         
         return cell
     }
@@ -66,7 +67,7 @@ class ChampSelectCollectionViewController: UICollectionViewController {
     // MARK: - ChampDataSource
     //==========================================================================
 
-    func getChamps() {
+    func updateChamps() {
         let completion = { [weak self] (champList: [Champ]) in
             guard let strongSelf = self else { return }
         
@@ -75,18 +76,26 @@ class ChampSelectCollectionViewController: UICollectionViewController {
 //            self?.getChampImages() //TODO: do this somehow
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 strongSelf.collectionView?.reloadData()
+                strongSelf.updateAllChampImages()
             })
         }
         
-        ChampManager.defaultChampManager.updateChamps(completion)
+        ChampManager.defaultChampManager.updateChampInfo(completion)
     }
     
 
     
-    func getChampImages() {
+    func updateAllChampImages() {
        
-//        for champ in champs {
-        
+        for (index, champ) in champs.enumerate() {
+            ChampManager.defaultChampManager.champDefaultImage(champ.imageName, completion: { [weak self] (image) -> () in
+                guard let image = image, strongSelf = self else { return }
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    strongSelf.champs[index].image = image
+                    strongSelf.collectionView?.reloadItemsAtIndexPaths([NSIndexPath(forItem: index, inSection: 0)]) //TODO: find a way to make this not a hard coded number
+                })
+            })
+            
             //TODO: replace cdn version dynamically
 //            Alamofire.request(.GET, "http://ddragon.leagueoflegends.com/cdn/5.19.1/img/champion/\(champ.name).png", parameters:nil).responseData({ response in
 //                
@@ -114,10 +123,22 @@ class ChampSelectCollectionViewController: UICollectionViewController {
 //                            })
 //                        }
 //                    }
-//            }
+            }
         
     }
+   
+    //==========================================================================
+    // MARK: - UICollectionViewDelegate
+    //==========================================================================
     
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let champPage = ChampInfoViewController()
+        champPage.nameLabel.text = champs[indexPath.item].name
+        
+//        presentViewController(navigationController, animated: true, completion: nil) //TODO: use this instead of push
+        navigationController?.pushViewController(champPage, animated: true)
+    }
+
     
     //==========================================================================
     // MARK: - Layout

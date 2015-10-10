@@ -9,16 +9,20 @@
 import Foundation
 
 typealias ChampManagerChampListCompletion = ([Champ]) -> ()
+typealias ChampManagerImageCompletion = (UIImage?) -> ()
 
 class ChampManager {
     
-//    var champs = [Champ]()
+//    var champs = [Champ]() //TODO: use this or get rid of it
     
     static let defaultChampManager = ChampManager()
     
-    func updateChamps(completion: ChampManagerChampListCompletion) {
-        NetworkManager.defaultNetworkManager.champListRequest() { [weak self] (champList: [String : AnyObject]) in
-            guard let strongSelf = self else { return }
+    func updateChampInfo(completion: ChampManagerChampListCompletion) {
+        NetworkManager.defaultNetworkManager.fullChampListRequest() { [weak self] (champList: [String : AnyObject]?) in
+            guard let champList = champList, strongSelf = self else {
+                print("Error getting champ list")
+                return
+            }
             
             let newChamps = strongSelf.champsFromJSON(champList)
 //                strongSelf.champs = newChamps
@@ -35,8 +39,21 @@ class ChampManager {
                     champ.name = name
                 }
            
-                if let id = champDictionary["id"] as? Int{
-                        champ.idNumber = id
+                if let id = champDictionary["id"] as? Int {
+                    champ.idNumber = id
+                }
+                
+                if let imageJSON = champDictionary["image"], imageName = imageJSON["full"] as? String {
+                    champ.imageName = imageName
+                }
+                
+                if let skinsJSON = champDictionary["skins"] as? [String : AnyObject] {
+                    for skin in skinsJSON.values {
+                        if let id = skin["id"] as? Int, name = skin["name"] as? String, number = skin["num"] as? Int {
+                            let newSkin = Skin(id: id, name: name, number: number)
+                            champ.skins[name] = newSkin
+                        }
+                    }
                 }
                 
                 champs.append(champ)
@@ -48,6 +65,17 @@ class ChampManager {
         }
         
         return champs
+    }
+    
+    func champDefaultImage(imageName: String, completion: ChampManagerImageCompletion) {
+        NetworkManager.defaultNetworkManager.champImageRequest(imageName, imageType: ChampImageType.Square, skinNumber: 0) { (image) -> () in
+            guard let image = image else {
+                completion(nil)
+                return
+            }
+            
+            completion(image)
+        }
     }
     
     

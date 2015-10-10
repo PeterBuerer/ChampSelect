@@ -11,5 +11,7 @@ import UIKit
 class Champ {
     var name = ""
     var idNumber = 0
+    var imageName: String = ""
     var image: UIImage?
+    var skins = [String : Skin]()
 }
