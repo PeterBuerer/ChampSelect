@@ -24,6 +24,8 @@ class ChampSelectCollectionViewController: UICollectionViewController {
         
         collectionView?.registerClass(ChampSelectCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView?.contentInset = UIEdgeInsets(top: collectionInset, left: collectionInset, bottom: collectionInset, right: collectionInset)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Legal", style: .Done, target: self, action: Selector("showLegal"))
     }
     
     override func viewDidLoad() {
@@ -35,7 +37,18 @@ class ChampSelectCollectionViewController: UICollectionViewController {
         collectionView?.backgroundColor = UIColor.whiteColor()
         navigationItem.title = "Champ Select"
     }
-   
+    
+    //==========================================================================
+    // MARK: - Actions
+    //==========================================================================
+
+    func showLegal() {
+        let legalViewController = LegalViewController()
+        let navVC = UINavigationController(rootViewController: legalViewController)
+        
+        presentViewController(navVC, animated: true, completion: nil)
+    }
+    
     //==========================================================================
     // MARK: - UICollectionViewDataSource
     //==========================================================================

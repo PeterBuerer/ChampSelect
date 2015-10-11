@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D00C196B1BC85CE2009F72F7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00C196A1BC85CE2009F72F7 /* NetworkManager.swift */; settings = {ASSET_TAGS = (); }; };
 		D036DB681BCA962E00FDAFD0 /* BasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D036DB671BCA962E00FDAFD0 /* BasicInfo.swift */; settings = {ASSET_TAGS = (); }; };
+		D036DB6F1BCAC2AC00FDAFD0 /* LegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D036DB6E1BCAC2AC00FDAFD0 /* LegalViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		D04D4A391BC93DFC00DF6539 /* ChampInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A381BC93DFC00DF6539 /* ChampInfoViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		D04D4A3B1BC93FAA00DF6539 /* ChampInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A3A1BC93FAA00DF6539 /* ChampInfoViewModel.swift */; settings = {ASSET_TAGS = (); }; };
 		D04D4A3D1BC9493E00DF6539 /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A3C1BC9493E00DF6539 /* Spell.swift */; settings = {ASSET_TAGS = (); }; };
@@ -123,6 +124,7 @@
 /* Begin PBXFileReference section */
 		D00C196A1BC85CE2009F72F7 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D036DB671BCA962E00FDAFD0 /* BasicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicInfo.swift; sourceTree = "<group>"; };
+		D036DB6E1BCAC2AC00FDAFD0 /* LegalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegalViewController.swift; sourceTree = "<group>"; };
 		D037BE791BC5926A0021D107 /* ChampSelect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChampSelect-Bridging-Header.h"; sourceTree = "<group>"; };
 		D04D4A381BC93DFC00DF6539 /* ChampInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampInfoViewController.swift; sourceTree = "<group>"; };
 		D04D4A3A1BC93FAA00DF6539 /* ChampInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampInfoViewModel.swift; sourceTree = "<group>"; };
@@ -219,6 +221,14 @@
 				D00C196A1BC85CE2009F72F7 /* NetworkManager.swift */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		D036DB6D1BCAC29800FDAFD0 /* Legal */ = {
+			isa = PBXGroup;
+			children = (
+				D036DB6E1BCAC2AC00FDAFD0 /* LegalViewController.swift */,
+			);
+			name = Legal;
 			sourceTree = "<group>";
 		};
 		D037BE741BC5922D0021D107 /* Supporting Files */ = {
@@ -335,6 +345,7 @@
 				D0F936D61BC4126A00496F10 /* Model */,
 				D0F936D31BC40D3C00496F10 /* ChampSelectCollection */,
 				D04D4A371BC93DD600DF6539 /* ChampPage */,
+				D036DB6D1BCAC29800FDAFD0 /* Legal */,
 			);
 			path = ChampSelect;
 			sourceTree = "<group>";
@@ -576,6 +587,7 @@
 				D07225271BC5ECB600E99D4E /* AFNetworkReachabilityManager.m in Sources */,
 				D04D4A391BC93DFC00DF6539 /* ChampInfoViewController.swift in Sources */,
 				D07225321BC5ECB600E99D4E /* UIProgressView+AFNetworking.m in Sources */,
+				D036DB6F1BCAC2AC00FDAFD0 /* LegalViewController.swift in Sources */,
 				D072252C1BC5ECB600E99D4E /* AFURLSessionManager.m in Sources */,
 				D072252A1BC5ECB600E99D4E /* AFURLRequestSerialization.m in Sources */,
 				D0C0FFCA1BC2FF0E00195777 /* AppDelegate.swift in Sources */,
