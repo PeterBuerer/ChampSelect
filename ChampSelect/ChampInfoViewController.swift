@@ -23,11 +23,13 @@ class ChampInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        imageView.image = champ.skins["default"]?.image
        
+        if champ.skins.count > 0 {
+            imageView.image = champ.skins[0].image
+        }
+        
         //just picking a random skin right now
-        ChampManager.defaultChampManager.champLoadingScreenImage(champ.imageName, skinNumber: Int(arc4random_uniform(UInt32(champ.skins.count))), completion: { [weak self] (image) -> () in
+        ChampManager.defaultChampManager.champLoadingScreenImage(champ, skinNumber: Int(arc4random_uniform(UInt32(champ.skins.count))), completion: { [weak self] (image) -> () in
             
             dispatch_async(dispatch_get_main_queue(), { [weak self] () -> Void in
                

@@ -8,10 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		D00C196B1BC85CE2009F72F7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00C196A1BC85CE2009F72F7 /* NetworkManager.swift */; settings = {ASSET_TAGS = (); }; };
+		D036DB681BCA962E00FDAFD0 /* BasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D036DB671BCA962E00FDAFD0 /* BasicInfo.swift */; settings = {ASSET_TAGS = (); }; };
 		D04D4A391BC93DFC00DF6539 /* ChampInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A381BC93DFC00DF6539 /* ChampInfoViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		D04D4A3B1BC93FAA00DF6539 /* ChampInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A3A1BC93FAA00DF6539 /* ChampInfoViewModel.swift */; settings = {ASSET_TAGS = (); }; };
 		D04D4A3D1BC9493E00DF6539 /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A3C1BC9493E00DF6539 /* Spell.swift */; settings = {ASSET_TAGS = (); }; };
 		D04D4A3F1BC9647C00DF6539 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A3E1BC9647C00DF6539 /* Skin.swift */; settings = {ASSET_TAGS = (); }; };
+		D066AD521BC9EB2E00D6BDA4 /* Passive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D066AD511BC9EB2E00D6BDA4 /* Passive.swift */; settings = {ASSET_TAGS = (); }; };
+		D066AD5A1BC9EC0900D6BDA4 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = D066AD591BC9EC0900D6BDA4 /* Stats.swift */; settings = {ASSET_TAGS = (); }; };
+		D066AD5C1BC9EC6200D6BDA4 /* LevelTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D066AD5B1BC9EC6200D6BDA4 /* LevelTip.swift */; settings = {ASSET_TAGS = (); }; };
+		D066AD5E1BC9ECDC00D6BDA4 /* SpellVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = D066AD5D1BC9ECDC00D6BDA4 /* SpellVars.swift */; settings = {ASSET_TAGS = (); }; };
 		D07225241BC5ECB600E99D4E /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D07224FF1BC5ECB600E99D4E /* AFHTTPRequestOperation.m */; settings = {ASSET_TAGS = (); }; };
 		D07225251BC5ECB600E99D4E /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D07225011BC5ECB600E99D4E /* AFHTTPRequestOperationManager.m */; settings = {ASSET_TAGS = (); }; };
 		D07225261BC5ECB600E99D4E /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D07225031BC5ECB600E99D4E /* AFHTTPSessionManager.m */; settings = {ASSET_TAGS = (); }; };
@@ -117,11 +122,16 @@
 
 /* Begin PBXFileReference section */
 		D00C196A1BC85CE2009F72F7 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D036DB671BCA962E00FDAFD0 /* BasicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicInfo.swift; sourceTree = "<group>"; };
 		D037BE791BC5926A0021D107 /* ChampSelect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChampSelect-Bridging-Header.h"; sourceTree = "<group>"; };
 		D04D4A381BC93DFC00DF6539 /* ChampInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampInfoViewController.swift; sourceTree = "<group>"; };
 		D04D4A3A1BC93FAA00DF6539 /* ChampInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampInfoViewModel.swift; sourceTree = "<group>"; };
 		D04D4A3C1BC9493E00DF6539 /* Spell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
 		D04D4A3E1BC9647C00DF6539 /* Skin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
+		D066AD511BC9EB2E00D6BDA4 /* Passive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Passive.swift; sourceTree = "<group>"; };
+		D066AD591BC9EC0900D6BDA4 /* Stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		D066AD5B1BC9EC6200D6BDA4 /* LevelTip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTip.swift; sourceTree = "<group>"; };
+		D066AD5D1BC9ECDC00D6BDA4 /* SpellVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellVars.swift; sourceTree = "<group>"; };
 		D07224FE1BC5ECB600E99D4E /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		D07224FF1BC5ECB600E99D4E /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		D07225001BC5ECB600E99D4E /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -375,6 +385,11 @@
 				D0F936D91BC4132000496F10 /* Champ.swift */,
 				D04D4A3C1BC9493E00DF6539 /* Spell.swift */,
 				D04D4A3E1BC9647C00DF6539 /* Skin.swift */,
+				D066AD511BC9EB2E00D6BDA4 /* Passive.swift */,
+				D066AD591BC9EC0900D6BDA4 /* Stats.swift */,
+				D066AD5B1BC9EC6200D6BDA4 /* LevelTip.swift */,
+				D066AD5D1BC9ECDC00D6BDA4 /* SpellVars.swift */,
+				D036DB671BCA962E00FDAFD0 /* BasicInfo.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -564,6 +579,7 @@
 				D072252C1BC5ECB600E99D4E /* AFURLSessionManager.m in Sources */,
 				D072252A1BC5ECB600E99D4E /* AFURLRequestSerialization.m in Sources */,
 				D0C0FFCA1BC2FF0E00195777 /* AppDelegate.swift in Sources */,
+				D066AD5A1BC9EC0900D6BDA4 /* Stats.swift in Sources */,
 				D07225331BC5ECB600E99D4E /* UIRefreshControl+AFNetworking.m in Sources */,
 				D072252B1BC5ECB600E99D4E /* AFURLResponseSerialization.m in Sources */,
 				D0F936D51BC40DE100496F10 /* ChampSelectCollectionViewCell.swift in Sources */,
@@ -573,7 +589,11 @@
 				D072252F1BC5ECB600E99D4E /* UIAlertView+AFNetworking.m in Sources */,
 				D07225251BC5ECB600E99D4E /* AFHTTPRequestOperationManager.m in Sources */,
 				D07225281BC5ECB600E99D4E /* AFSecurityPolicy.m in Sources */,
+				D066AD521BC9EB2E00D6BDA4 /* Passive.swift in Sources */,
+				D066AD5E1BC9ECDC00D6BDA4 /* SpellVars.swift in Sources */,
 				D07225341BC5ECB600E99D4E /* UIWebView+AFNetworking.m in Sources */,
+				D066AD5C1BC9EC6200D6BDA4 /* LevelTip.swift in Sources */,
+				D036DB681BCA962E00FDAFD0 /* BasicInfo.swift in Sources */,
 				D0F936D81BC4128F00496F10 /* ChampManager.swift in Sources */,
 				D0F936CE1BC4071100496F10 /* ChampSelectCollectionViewController.swift in Sources */,
 				D07225261BC5ECB600E99D4E /* AFHTTPSessionManager.m in Sources */,

@@ -66,7 +66,7 @@ class NetworkManager {
         }
     }
     
-    func champImageRequest(imageName: NSString, imageType: ChampImageType, skinNumber: Int, completion: NetworkManagerChampImageCompletion) {
+    func champImageRequest(imageName: NSString, champKey: String, imageType: ChampImageType, skinNumber: Int, completion: NetworkManagerChampImageCompletion) {
        
         let fileExtension = imageType.imageExtensionForType() //TODO: remove this if not needed
       
@@ -78,9 +78,7 @@ class NetworkManager {
                  url = NSURL(string: "\(NetworkManager.cdnURL)/\(NetworkManager.cdnVersion)/img/champion/\(imageName)?api_key=\(APIKey)")
              default:
                  //create skin url string
-                 let imageNameNSString = NSString(string: imageName)
-                 let baseImageName = String(imageNameNSString.stringByDeletingPathExtension)
-                 url = NSURL(string: "\(NetworkManager.cdnURL)/img/champion/\(imageType.rawValue)/\(baseImageName)_\(skinNumber)\(fileExtension)?api_key=\(APIKey)")
+                 url = NSURL(string: "\(NetworkManager.cdnURL)/img/champion/\(imageType.rawValue)/\(champKey)_\(skinNumber)\(fileExtension)?api_key=\(APIKey)")
         }
        
         guard let completeURL = url else {

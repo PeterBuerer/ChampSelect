@@ -83,7 +83,7 @@ class ChampSelectCollectionViewController: UICollectionViewController {
     func updateAllChampImages() {
        
         for (index, champ) in champs.enumerate() {
-            ChampManager.defaultChampManager.champIconImage(champ.imageName, completion: { [weak self] (image) -> () in
+            ChampManager.defaultChampManager.champIconImage(champ, completion: { [weak self] (image) -> () in
                 guard let image = image, strongSelf = self else { return }
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     strongSelf.champs[index].iconImage = image
@@ -92,9 +92,9 @@ class ChampSelectCollectionViewController: UICollectionViewController {
             })
            
             //load default skin image
-            ChampManager.defaultChampManager.champLoadingScreenImage(champ.imageName, skinNumber: 0, completion: { [weak self] (image) -> () in
+            ChampManager.defaultChampManager.champLoadingScreenImage(champ, skinNumber: 0, completion: { [weak self] (image) -> () in
                 guard let strongSelf = self where strongSelf.champs[index].skins.count > 0 else { return }
-                strongSelf.champs[index].skins["default"]?.image = image
+                strongSelf.champs[index].skins[0].image = image
             })
         }
         
