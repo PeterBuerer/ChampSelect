@@ -22,15 +22,15 @@ class Champ {
     var allyTips = [String]()
     var enemyTips = [String]()
     
-    var basicInfo = BasicInfo()
+    var basicInfo = BasicInfo(dictionary: [:])
     var key = ""
     var lore = ""
     
     var parType = "" //things used with abilities ... sorta mana, energy, wind, battelfury, none etc... don't know if going to use this one
-    var passive = Passive()
+    var passive = Passive(dictionary: [:])
     
     var spells = [Spell]()
-    var stats = Stats()
+    var stats = Stats(dictionary: [:])
     var tags = [String]()
     var title = ""
 //    Name	Data Type	Description

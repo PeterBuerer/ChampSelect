@@ -21,6 +21,7 @@ class ChampManager {
 
     static let defaultChampManager = ChampManager()
     
+    //grabs info for all champs
     func updateChampInfo(completion: ChampManagerChampListCompletion) {
         NetworkManager.defaultNetworkManager.fullChampListRequest() { [weak self] (champList: [String : AnyObject]?) in
             guard let champList = champList, strongSelf = self else {
@@ -42,7 +43,7 @@ class ChampManager {
         var champs = [Champ]()
         for value in json.values {
             if let champDictionary = value as? [String: AnyObject] {
-                let champ = champFromJSON(champDictionary)
+                let champ = champFromDictionary(champDictionary)
                 champs.append(champ)
             }
         }
@@ -55,7 +56,7 @@ class ChampManager {
     }
    
     //TODO: There must be a better way...
-    func champFromJSON(champDictionary: [String : AnyObject]) -> Champ {
+    func champFromDictionary(champDictionary: [String : AnyObject]) -> Champ {
         let champ = Champ()
         if let name = champDictionary["name"] as? String {
             champ.name = name
@@ -104,8 +105,9 @@ class ChampManager {
             champ.enemyTips = enemyTips
         }
         
-        if let basicInfo = champDictionary["info"] as? [String : Int] {
-            //TODO: initialized basic info
+        if let basicInfoDictionary = champDictionary["info"] as? [String : Int] {
+            let basicInfo = BasicInfo(dictionary: basicInfoDictionary)
+            champ.basicInfo = basicInfo
         }
         
         if let lore = champDictionary["lore"] as? String {
@@ -116,16 +118,26 @@ class ChampManager {
             champ.parType = parType
         }
         
-        if let passive = champDictionary["passive"] as? [String : AnyObject] {
-            //TODO: initialized passive
+        if let passiveDictionary = champDictionary["passive"] as? [String : AnyObject] {
+            let passive = Passive(dictionary: passiveDictionary)
+            champ.passive = passive
         }
         
-        if let spells = champDictionary["spells"] as? [[String : AnyObject]] {
+        if let spellsArrayDictionary = champDictionary["spells"] as? [[String : AnyObject]] {
             //TODO: initialize spells
+            var spells = [Spell]()
+            for spellDict in spellsArrayDictionary {
+                let spell = Spell(dictionary: spellDict)
+                spells.append(spell)
+            }
+            
+            champ.spells = spells
         }
         
-        if let stats = champDictionary["stats"] as? [String : Double] {
+        if let statsDictionary = champDictionary["stats"] as? [String : Double] {
             //TODO: initialize stats
+            let stats = Stats(dictionary: statsDictionary)
+            champ.stats = stats
         }
         
         if let tags = champDictionary["tags"] as? [String] {

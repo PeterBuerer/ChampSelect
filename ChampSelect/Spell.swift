@@ -11,7 +11,10 @@ import Foundation
 class Spell {
     var name = ""
     var description = ""
-    
+   
+    init(dictionary: [String : AnyObject]) {
+        //TODO: implement this
+    }
 //    
 //    Name	Data Type	Description
 //    altimages	List[ImageDto] //maybe do this later

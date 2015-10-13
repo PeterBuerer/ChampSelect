@@ -9,6 +9,10 @@
 import Foundation
 
 class Stats {
+    
+    init(dictionary: [String : Double]) {
+        
+    }
 //    
 //    Name	Data Type	Description
 //    armor	double

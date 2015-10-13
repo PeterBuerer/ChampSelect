@@ -7,4 +7,4 @@ This is a learning project for me. I am currently using it to gain experience in
 The app itself is simply a champion library that provides information about a champ when you tap on them. It is a work in progress and will most likely remain so for the foreseeable because I plan on using it to experiment with as many new things as possible.
 
 ###IMPORTANT 
-This application requires an API key. To acquire one, simply log on to [http://developer.riotgames.com](http://developer.riotgames.com) with your League of Legends account and register a key.
+This application requires an API key. To acquire one, simply log on to [http://developer.riotgames.com](http://developer.riotgames.com) with your League of Legends account and register a key. If you are planning on running the app to do more than just test it out, please replace my API key with your own.
