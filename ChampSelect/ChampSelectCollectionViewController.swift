@@ -36,8 +36,6 @@ class ChampSelectCollectionViewController: UICollectionViewController {
         
         collectionView?.backgroundColor = UIColor.whiteColor()
         navigationItem.title = "Champ Select"
-        
-        collectionView?.hidden = true
     }
     
     //==========================================================================
