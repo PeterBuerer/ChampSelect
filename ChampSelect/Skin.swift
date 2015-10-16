@@ -19,4 +19,24 @@ class Skin {
         self.name = name
         self.number = number
     }
+    
+    init(dictionary: [String : AnyObject]) {
+        //TODO: implement this
+        if let id = dictionary["id"] as? Int {
+            self.id = id
+        }
+        
+        if let name = dictionary["name"] as? String {
+            self.name = name
+        }
+        
+        if let number = dictionary["number"] as? Int {
+            self.number = number
+        }
+        //TODO: maybe have this make the call to get the image?
+    }
+    
+    init() {
+        
+    }
 }

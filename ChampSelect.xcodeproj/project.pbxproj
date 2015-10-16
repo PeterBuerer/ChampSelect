@@ -16,7 +16,7 @@
 		D04D4A3F1BC9647C00DF6539 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A3E1BC9647C00DF6539 /* Skin.swift */; settings = {ASSET_TAGS = (); }; };
 		D066AD521BC9EB2E00D6BDA4 /* Passive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D066AD511BC9EB2E00D6BDA4 /* Passive.swift */; settings = {ASSET_TAGS = (); }; };
 		D066AD5A1BC9EC0900D6BDA4 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = D066AD591BC9EC0900D6BDA4 /* Stats.swift */; settings = {ASSET_TAGS = (); }; };
-		D066AD5C1BC9EC6200D6BDA4 /* LevelTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D066AD5B1BC9EC6200D6BDA4 /* LevelTip.swift */; settings = {ASSET_TAGS = (); }; };
+		D066AD5C1BC9EC6200D6BDA4 /* Leveltip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D066AD5B1BC9EC6200D6BDA4 /* Leveltip.swift */; settings = {ASSET_TAGS = (); }; };
 		D066AD5E1BC9ECDC00D6BDA4 /* SpellVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = D066AD5D1BC9ECDC00D6BDA4 /* SpellVars.swift */; settings = {ASSET_TAGS = (); }; };
 		D07225241BC5ECB600E99D4E /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D07224FF1BC5ECB600E99D4E /* AFHTTPRequestOperation.m */; settings = {ASSET_TAGS = (); }; };
 		D07225251BC5ECB600E99D4E /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D07225011BC5ECB600E99D4E /* AFHTTPRequestOperationManager.m */; settings = {ASSET_TAGS = (); }; };
@@ -132,7 +132,7 @@
 		D04D4A3E1BC9647C00DF6539 /* Skin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
 		D066AD511BC9EB2E00D6BDA4 /* Passive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Passive.swift; sourceTree = "<group>"; };
 		D066AD591BC9EC0900D6BDA4 /* Stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
-		D066AD5B1BC9EC6200D6BDA4 /* LevelTip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTip.swift; sourceTree = "<group>"; };
+		D066AD5B1BC9EC6200D6BDA4 /* Leveltip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leveltip.swift; sourceTree = "<group>"; };
 		D066AD5D1BC9ECDC00D6BDA4 /* SpellVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellVars.swift; sourceTree = "<group>"; };
 		D07224FE1BC5ECB600E99D4E /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		D07224FF1BC5ECB600E99D4E /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -398,7 +398,7 @@
 				D04D4A3E1BC9647C00DF6539 /* Skin.swift */,
 				D066AD511BC9EB2E00D6BDA4 /* Passive.swift */,
 				D066AD591BC9EC0900D6BDA4 /* Stats.swift */,
-				D066AD5B1BC9EC6200D6BDA4 /* LevelTip.swift */,
+				D066AD5B1BC9EC6200D6BDA4 /* Leveltip.swift */,
 				D066AD5D1BC9ECDC00D6BDA4 /* SpellVars.swift */,
 				D036DB671BCA962E00FDAFD0 /* BasicInfo.swift */,
 			);
@@ -604,7 +604,7 @@
 				D066AD521BC9EB2E00D6BDA4 /* Passive.swift in Sources */,
 				D066AD5E1BC9ECDC00D6BDA4 /* SpellVars.swift in Sources */,
 				D07225341BC5ECB600E99D4E /* UIWebView+AFNetworking.m in Sources */,
-				D066AD5C1BC9EC6200D6BDA4 /* LevelTip.swift in Sources */,
+				D066AD5C1BC9EC6200D6BDA4 /* Leveltip.swift in Sources */,
 				D036DB681BCA962E00FDAFD0 /* BasicInfo.swift in Sources */,
 				D0F936D81BC4128F00496F10 /* ChampManager.swift in Sources */,
 				D0F936CE1BC4071100496F10 /* ChampSelectCollectionViewController.swift in Sources */,

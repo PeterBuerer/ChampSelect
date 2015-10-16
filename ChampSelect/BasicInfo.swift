@@ -31,4 +31,8 @@ class BasicInfo { //InfoDto
             self.magic = magic
         }
     }
+    
+    init() {
+        
+    }
 }

@@ -14,18 +14,22 @@ class Passive {
     var name = ""
     var sanitizedDescription = ""
     
-    init(dictionary: [String : AnyObject]) {
-        if let description = dictionary["description"] as? String {
+    init(dictionary: [String : String]) {
+        if let description = dictionary["description"] {
             self.description = description
         }
         
-        if let name = dictionary["name"] as? String {
+        if let name = dictionary["name"] {
             self.name = name
         }
         
-        if let sanitizedDescription = dictionary["sanitizedDescription"] as? String {
+        if let sanitizedDescription = dictionary["sanitizedDescription"] {
             self.sanitizedDescription = sanitizedDescription
         }
     }
 //    image	ImageDto                    //TODO: might need to include this
+    
+    init() {
+        
+    }
 }

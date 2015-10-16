@@ -9,11 +9,36 @@
 import Foundation
 
 class SpellVars {
+   
+    var coefficient = [Double]()
+    var dyn = "" //dynamic?
+    var key = ""
+    var link = ""
+    var ranksWith = ""
     
-//    Name	Data Type	Description
-//    coeff	List[double]
-//    dyn	string
-//    key	string
-//    link	string
-//    ranksWith	string
+    init(dictionary: [String : AnyObject]) {
+        if let coefficient = dictionary["coef"] as? [Double] {
+            self.coefficient = coefficient
+        }
+        
+        if let dyn = dictionary["dyn"] as? String { //dynamic?
+           self.dyn = dyn
+        }
+        
+        if let key = dictionary["key"] as? String {
+            self.key = key
+        }
+        
+        if let link = dictionary["link"] as? String {
+            self.link = link
+        }
+        
+        if let ranksWith = dictionary["ranksWith"] as? String {
+            self.ranksWith = ranksWith
+        }
+    }
+    
+    init() {
+        
+    }
 }
