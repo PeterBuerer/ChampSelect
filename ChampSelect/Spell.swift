@@ -68,11 +68,15 @@ class Spell {
             self.costType = costType
         }
         
-        if let effect = dictionary["effect"] as? [[Double]] {
-           self.effect = effect
+        if let effectWithNil = dictionary["effect"] as? [[Double]?] {
+            print("got effect")
+//            self.effect = effect
+            
+            //TODO: figure out how to make this work ?!
+            //although can just parse effectBurn to get same info if needed
         }
         
-        if let effectBurn = dictionary["effectBurn"] as? [String] { //might need to convert this to a number??
+        if let effectBurn = dictionary["effectBurn"] as? [String] {
            self.effectBurn = effectBurn
         }
         
@@ -91,7 +95,7 @@ class Spell {
         if let rangeInt = dictionary["range"] as? [Int] { //This field is either a List of Integer or the String 'self' for spells that target one's own champion.
             self.range = rangeInt
         }
-        else if let rangeSelf = dictionary["range"] as? String {
+        else if let _ = dictionary["range"] as? String {
             self.targetsSelf = true
         }
         

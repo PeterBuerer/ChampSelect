@@ -45,7 +45,7 @@ class Stats {
         }
         
         if let attackDamagePerLevel = dictionary["attackdamageperlevel"] {
-            self.attackDamage = attackDamagePerLevel
+            self.attackDamagePerLevel = attackDamagePerLevel
         }
         
         if let attackRange = dictionary["attackrange"] {
@@ -56,7 +56,7 @@ class Stats {
             self.attackSpeedOffset = attackSpeedOffset
         }
         
-        if let attackSpeedPerLevel = dictionary["attackSpeedPerLevel"] {
+        if let attackSpeedPerLevel = dictionary["attackspeedperlevel"] {
             self.attackSpeedPerLevel = attackSpeedPerLevel
         }
         
@@ -76,7 +76,7 @@ class Stats {
             self.hpPerLevel = hpPerLevel
         }
         
-        if let hpRegen = dictionary["hpRegen"] {
+        if let hpRegen = dictionary["hpregen"] {
             self.hpRegen = hpRegen
         }
         

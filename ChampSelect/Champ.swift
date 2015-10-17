@@ -62,10 +62,7 @@ class Champ {
         
         if let skinsJSON = dictionary["skins"] as? [[String : AnyObject]] {
             for skin in skinsJSON {
-                if let id = skin["id"] as? Int, name = skin["name"] as? String, number = skin["num"] as? Int {
-                    let newSkin = Skin(id: id, name: name, number: number)
-                    self.skins.append(newSkin)
-                }
+                    self.skins.append(Skin(dictionary: skin))
             }
             
             self.skins.sortInPlace { (left, right) -> Bool in
@@ -86,8 +83,7 @@ class Champ {
         }
         
         if let basicInfoDictionary = dictionary["info"] as? [String : Int] {
-            let basicInfo = BasicInfo(dictionary: basicInfoDictionary)
-            self.basicInfo = basicInfo
+            self.basicInfo = BasicInfo(dictionary: basicInfoDictionary)
         }
         
         if let lore = dictionary["lore"] as? String {
@@ -98,26 +94,18 @@ class Champ {
             self.parType = parType
         }
         
-        if let passiveDictionary = dictionary["passive"] as? [String : String] {
-            let passive = Passive(dictionary: passiveDictionary)
-            self.passive = passive
+        if let passiveDictionary = dictionary["passive"] as? [String : AnyObject] {
+            self.passive = Passive(dictionary: passiveDictionary)
         }
         
         if let spellsArrayDictionary = dictionary["spells"] as? [[String : AnyObject]] {
-            //TODO: initialize spells
-            var spells = [Spell]()
             for spellDict in spellsArrayDictionary {
-                let spell = Spell(dictionary: spellDict)
-                spells.append(spell)
+                self.spells.append(Spell(dictionary: spellDict))
             }
-            
-            self.spells = spells
         }
         
         if let statsDictionary = dictionary["stats"] as? [String : Double] {
-            //TODO: initialize stats
-            let stats = Stats(dictionary: statsDictionary)
-            self.stats = stats
+            self.stats = Stats(dictionary: statsDictionary)
         }
         
         if let tags = dictionary["tags"] as? [String] {

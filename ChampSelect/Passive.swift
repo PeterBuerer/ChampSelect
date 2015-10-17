@@ -14,16 +14,16 @@ class Passive {
     var name = ""
     var sanitizedDescription = ""
     
-    init(dictionary: [String : String]) {
-        if let description = dictionary["description"] {
+    init(dictionary: [String : AnyObject]) {
+        if let description = dictionary["description"] as? String {
             self.description = description
         }
         
-        if let name = dictionary["name"] {
+        if let name = dictionary["name"] as? String {
             self.name = name
         }
         
-        if let sanitizedDescription = dictionary["sanitizedDescription"] {
+        if let sanitizedDescription = dictionary["sanitizedDescription"] as? String {
             self.sanitizedDescription = sanitizedDescription
         }
     }

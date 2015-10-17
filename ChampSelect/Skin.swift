@@ -30,7 +30,7 @@ class Skin {
             self.name = name
         }
         
-        if let number = dictionary["number"] as? Int {
+        if let number = dictionary["num"] as? Int {
             self.number = number
         }
         //TODO: maybe have this make the call to get the image?
