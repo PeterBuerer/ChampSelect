@@ -10,7 +10,7 @@
 		D00C196B1BC85CE2009F72F7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00C196A1BC85CE2009F72F7 /* NetworkManager.swift */; settings = {ASSET_TAGS = (); }; };
 		D036DB681BCA962E00FDAFD0 /* BasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D036DB671BCA962E00FDAFD0 /* BasicInfo.swift */; settings = {ASSET_TAGS = (); }; };
 		D036DB6F1BCAC2AC00FDAFD0 /* LegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D036DB6E1BCAC2AC00FDAFD0 /* LegalViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		D04D4A391BC93DFC00DF6539 /* ChampInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A381BC93DFC00DF6539 /* ChampInfoViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		D04D4A391BC93DFC00DF6539 /* ChampInfoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A381BC93DFC00DF6539 /* ChampInfoCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		D04D4A3B1BC93FAA00DF6539 /* ChampInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A3A1BC93FAA00DF6539 /* ChampInfoViewModel.swift */; settings = {ASSET_TAGS = (); }; };
 		D04D4A3D1BC9493E00DF6539 /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A3C1BC9493E00DF6539 /* Spell.swift */; settings = {ASSET_TAGS = (); }; };
 		D04D4A3F1BC9647C00DF6539 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A3E1BC9647C00DF6539 /* Skin.swift */; settings = {ASSET_TAGS = (); }; };
@@ -40,6 +40,7 @@
 		D0C0FFD41BC2FF0E00195777 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0C0FFD21BC2FF0E00195777 /* LaunchScreen.storyboard */; };
 		D0C0FFDF1BC2FF0E00195777 /* ChampSelectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C0FFDE1BC2FF0E00195777 /* ChampSelectTests.swift */; };
 		D0C0FFEA1BC2FF0E00195777 /* ChampSelectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C0FFE91BC2FF0E00195777 /* ChampSelectUITests.swift */; };
+		D0E1EA281BD3169F002861BF /* ChampInfoTitleImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EA271BD3169F002861BF /* ChampInfoTitleImageCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		D0F27B001BC300710037783D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F27AF71BC2FFE60037783D /* Alamofire.framework */; };
 		D0F27B011BC300710037783D /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D0F27AF71BC2FFE60037783D /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D0F936CE1BC4071100496F10 /* ChampSelectCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F936CD1BC4071100496F10 /* ChampSelectCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -126,7 +127,7 @@
 		D036DB671BCA962E00FDAFD0 /* BasicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicInfo.swift; sourceTree = "<group>"; };
 		D036DB6E1BCAC2AC00FDAFD0 /* LegalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegalViewController.swift; sourceTree = "<group>"; };
 		D037BE791BC5926A0021D107 /* ChampSelect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChampSelect-Bridging-Header.h"; sourceTree = "<group>"; };
-		D04D4A381BC93DFC00DF6539 /* ChampInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampInfoViewController.swift; sourceTree = "<group>"; };
+		D04D4A381BC93DFC00DF6539 /* ChampInfoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampInfoCollectionViewController.swift; sourceTree = "<group>"; };
 		D04D4A3A1BC93FAA00DF6539 /* ChampInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampInfoViewModel.swift; sourceTree = "<group>"; };
 		D04D4A3C1BC9493E00DF6539 /* Spell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
 		D04D4A3E1BC9647C00DF6539 /* Skin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
@@ -182,6 +183,7 @@
 		D0C0FFE51BC2FF0E00195777 /* ChampSelectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChampSelectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C0FFE91BC2FF0E00195777 /* ChampSelectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampSelectUITests.swift; sourceTree = "<group>"; };
 		D0C0FFEB1BC2FF0E00195777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0E1EA271BD3169F002861BF /* ChampInfoTitleImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampInfoTitleImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0F27AEE1BC2FFE60037783D /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		D0F936CD1BC4071100496F10 /* ChampSelectCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampSelectCollectionViewController.swift; sourceTree = "<group>"; };
 		D0F936D41BC40DE100496F10 /* ChampSelectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampSelectCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -253,7 +255,7 @@
 		D04D4A371BC93DD600DF6539 /* ChampPage */ = {
 			isa = PBXGroup;
 			children = (
-				D04D4A381BC93DFC00DF6539 /* ChampInfoViewController.swift */,
+				D0E1EA221BD31677002861BF /* ChampInfoCollectionView */,
 				D04D4A3A1BC93FAA00DF6539 /* ChampInfoViewModel.swift */,
 			);
 			name = ChampPage;
@@ -343,8 +345,7 @@
 				D037BE741BC5922D0021D107 /* Supporting Files */,
 				D00C19651BC85CC0009F72F7 /* Networking */,
 				D0F936D61BC4126A00496F10 /* Model */,
-				D0F936D31BC40D3C00496F10 /* ChampSelectCollection */,
-				D04D4A371BC93DD600DF6539 /* ChampPage */,
+				D0E1EA2C1BD322E1002861BF /* UI */,
 				D036DB6D1BCAC29800FDAFD0 /* Legal */,
 			);
 			path = ChampSelect;
@@ -366,6 +367,24 @@
 				D0C0FFEB1BC2FF0E00195777 /* Info.plist */,
 			);
 			path = ChampSelectUITests;
+			sourceTree = "<group>";
+		};
+		D0E1EA221BD31677002861BF /* ChampInfoCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D04D4A381BC93DFC00DF6539 /* ChampInfoCollectionViewController.swift */,
+				D0E1EA271BD3169F002861BF /* ChampInfoTitleImageCollectionViewCell.swift */,
+			);
+			name = ChampInfoCollectionView;
+			sourceTree = "<group>";
+		};
+		D0E1EA2C1BD322E1002861BF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D0F936D31BC40D3C00496F10 /* ChampSelectCollection */,
+				D04D4A371BC93DD600DF6539 /* ChampPage */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		D0F27AEF1BC2FFE60037783D /* Products */ = {
@@ -585,7 +604,7 @@
 				D07225241BC5ECB600E99D4E /* AFHTTPRequestOperation.m in Sources */,
 				D07225301BC5ECB600E99D4E /* UIButton+AFNetworking.m in Sources */,
 				D07225271BC5ECB600E99D4E /* AFNetworkReachabilityManager.m in Sources */,
-				D04D4A391BC93DFC00DF6539 /* ChampInfoViewController.swift in Sources */,
+				D04D4A391BC93DFC00DF6539 /* ChampInfoCollectionViewController.swift in Sources */,
 				D07225321BC5ECB600E99D4E /* UIProgressView+AFNetworking.m in Sources */,
 				D036DB6F1BCAC2AC00FDAFD0 /* LegalViewController.swift in Sources */,
 				D072252C1BC5ECB600E99D4E /* AFURLSessionManager.m in Sources */,
@@ -596,6 +615,7 @@
 				D072252B1BC5ECB600E99D4E /* AFURLResponseSerialization.m in Sources */,
 				D0F936D51BC40DE100496F10 /* ChampSelectCollectionViewCell.swift in Sources */,
 				D07225311BC5ECB600E99D4E /* UIImageView+AFNetworking.m in Sources */,
+				D0E1EA281BD3169F002861BF /* ChampInfoTitleImageCollectionViewCell.swift in Sources */,
 				D04D4A3F1BC9647C00DF6539 /* Skin.swift in Sources */,
 				D0F936DA1BC4132000496F10 /* Champ.swift in Sources */,
 				D072252F1BC5ECB600E99D4E /* UIAlertView+AFNetworking.m in Sources */,

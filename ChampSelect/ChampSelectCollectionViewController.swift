@@ -118,7 +118,7 @@ class ChampSelectCollectionViewController: UICollectionViewController {
     //==========================================================================
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let champPage = ChampInfoViewController(champ: champs[indexPath.item])
+        let champPage = ChampInfoCollectionViewController(champ: champs[indexPath.item])
        
         let navController = UINavigationController(rootViewController: champPage)
         presentViewController(navController, animated: true, completion: nil) //TODO: use this instead of push
