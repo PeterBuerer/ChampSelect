@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ChampInfoCollectionViewController: UICollectionViewController {
+class ChampInfoCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
  
     var champ = Champ() //TODO: make this a view model object maybe
     let titleCellIdentifier = "TitleCellIdentifier"
+    let genericCellIdentifier = "GenericCellIdentifier"
     
     convenience init(champ: Champ) {
         self.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -24,9 +25,10 @@ class ChampInfoCollectionViewController: UICollectionViewController {
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
-      
+     
         collectionView?.collectionViewLayout = flowlayout
-        collectionView?.registerClass(ChampInfoTitleImageCollectionViewCell.self, forCellWithReuseIdentifier: self.titleCellIdentifier)
+        collectionView?.registerClass(ChampInfoTitleImageCell.self, forCellWithReuseIdentifier: self.titleCellIdentifier)
+        collectionView?.registerClass(ChampInfoGenericCell.self, forCellWithReuseIdentifier: self.genericCellIdentifier)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: Selector("dismiss"))
     }
@@ -40,7 +42,7 @@ class ChampInfoCollectionViewController: UICollectionViewController {
     //==========================================================================
     // MARK: - Actions
     //==========================================================================
-    
+  
     func dismiss() {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -64,20 +66,51 @@ class ChampInfoCollectionViewController: UICollectionViewController {
     //==========================================================================
    
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
+        return 1 //TODO: replace this with a real number
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 10 //TODO: replace this with a real number
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(titleCellIdentifier, forIndexPath: indexPath) as! ChampInfoTitleImageCollectionViewCell
        
-        cell.imageView.image = champ.skins[0].image
-        cell.titleLabel.text = champ.title
+        switch(indexPath.item) {
+        case 0:
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(titleCellIdentifier, forIndexPath: indexPath) as! ChampInfoTitleImageCell
+            
+            cell.imageView.image = champ.skins[0].image
+            cell.titleLabel.text = champ.title
+            
+            return cell
+            break;
+        default:
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(genericCellIdentifier, forIndexPath: indexPath) as! ChampInfoGenericCell
+           
+            cell.titleLabel.text = "Ally Tips:"
+            cell.infoLabel.text = "\(champ.basicInfo.attack)"
+            
+            //TODO: get item info from viewmodel
+            
+            return cell
+            break;
+        }
         
-        return cell
+    }
+    
+    //==========================================================================
+    // MARK: - UICollectionViewDelegateFlowLayout
+    //==========================================================================
+ 
+    //TODO: revisit this later
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        switch(indexPath.item) {
+        case 0:
+            return flowlayout.itemSize
+            
+        default:
+            return CGSize(width: flowlayout.itemSize.width, height: 44.0)
+        }
     }
 
     
@@ -90,7 +123,9 @@ class ChampInfoCollectionViewController: UICollectionViewController {
         
         layout.minimumInteritemSpacing = 16.0;
         layout.minimumLineSpacing = 16.0;
-        layout.itemSize = CGSize(width: 256.0, height: 256.0)
+        layout.itemSize = CGSize(width: (0.5 * 560.0), height: 560.0) //TODO: got these numbers by looking at the size of a loading image skin; should probably do something better then this 
+        let insets = CGFloat(16.0)
+        layout.sectionInset = UIEdgeInsets(top: insets, left: insets, bottom: insets, right: insets)
         
         return layout
     }()

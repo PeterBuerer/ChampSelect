@@ -11,7 +11,7 @@
 		D036DB681BCA962E00FDAFD0 /* BasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D036DB671BCA962E00FDAFD0 /* BasicInfo.swift */; settings = {ASSET_TAGS = (); }; };
 		D036DB6F1BCAC2AC00FDAFD0 /* LegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D036DB6E1BCAC2AC00FDAFD0 /* LegalViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		D04D4A391BC93DFC00DF6539 /* ChampInfoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A381BC93DFC00DF6539 /* ChampInfoCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		D04D4A3B1BC93FAA00DF6539 /* ChampInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A3A1BC93FAA00DF6539 /* ChampInfoViewModel.swift */; settings = {ASSET_TAGS = (); }; };
+		D04D4A3B1BC93FAA00DF6539 /* ChampPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A3A1BC93FAA00DF6539 /* ChampPageViewModel.swift */; settings = {ASSET_TAGS = (); }; };
 		D04D4A3D1BC9493E00DF6539 /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A3C1BC9493E00DF6539 /* Spell.swift */; settings = {ASSET_TAGS = (); }; };
 		D04D4A3F1BC9647C00DF6539 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D4A3E1BC9647C00DF6539 /* Skin.swift */; settings = {ASSET_TAGS = (); }; };
 		D066AD521BC9EB2E00D6BDA4 /* Passive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D066AD511BC9EB2E00D6BDA4 /* Passive.swift */; settings = {ASSET_TAGS = (); }; };
@@ -40,7 +40,10 @@
 		D0C0FFD41BC2FF0E00195777 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0C0FFD21BC2FF0E00195777 /* LaunchScreen.storyboard */; };
 		D0C0FFDF1BC2FF0E00195777 /* ChampSelectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C0FFDE1BC2FF0E00195777 /* ChampSelectTests.swift */; };
 		D0C0FFEA1BC2FF0E00195777 /* ChampSelectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C0FFE91BC2FF0E00195777 /* ChampSelectUITests.swift */; };
-		D0E1EA281BD3169F002861BF /* ChampInfoTitleImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EA271BD3169F002861BF /* ChampInfoTitleImageCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		D0E1EA281BD3169F002861BF /* ChampInfoTitleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EA271BD3169F002861BF /* ChampInfoTitleImageCell.swift */; settings = {ASSET_TAGS = (); }; };
+		D0E1EA331BD5BF13002861BF /* ChampInfoGenericCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EA321BD5BF13002861BF /* ChampInfoGenericCell.swift */; settings = {ASSET_TAGS = (); }; };
+		D0E1EA3A1BD5C628002861BF /* ChampSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EA391BD5C628002861BF /* ChampSectionViewModel.swift */; settings = {ASSET_TAGS = (); }; };
+		D0E1EA3C1BD5C9BF002861BF /* ChampItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EA3B1BD5C9BF002861BF /* ChampItemViewModel.swift */; settings = {ASSET_TAGS = (); }; };
 		D0F27B001BC300710037783D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F27AF71BC2FFE60037783D /* Alamofire.framework */; };
 		D0F27B011BC300710037783D /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D0F27AF71BC2FFE60037783D /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D0F936CE1BC4071100496F10 /* ChampSelectCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F936CD1BC4071100496F10 /* ChampSelectCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -128,7 +131,7 @@
 		D036DB6E1BCAC2AC00FDAFD0 /* LegalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegalViewController.swift; sourceTree = "<group>"; };
 		D037BE791BC5926A0021D107 /* ChampSelect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChampSelect-Bridging-Header.h"; sourceTree = "<group>"; };
 		D04D4A381BC93DFC00DF6539 /* ChampInfoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampInfoCollectionViewController.swift; sourceTree = "<group>"; };
-		D04D4A3A1BC93FAA00DF6539 /* ChampInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampInfoViewModel.swift; sourceTree = "<group>"; };
+		D04D4A3A1BC93FAA00DF6539 /* ChampPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampPageViewModel.swift; sourceTree = "<group>"; };
 		D04D4A3C1BC9493E00DF6539 /* Spell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
 		D04D4A3E1BC9647C00DF6539 /* Skin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
 		D066AD511BC9EB2E00D6BDA4 /* Passive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Passive.swift; sourceTree = "<group>"; };
@@ -183,7 +186,10 @@
 		D0C0FFE51BC2FF0E00195777 /* ChampSelectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChampSelectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C0FFE91BC2FF0E00195777 /* ChampSelectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampSelectUITests.swift; sourceTree = "<group>"; };
 		D0C0FFEB1BC2FF0E00195777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D0E1EA271BD3169F002861BF /* ChampInfoTitleImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampInfoTitleImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		D0E1EA271BD3169F002861BF /* ChampInfoTitleImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampInfoTitleImageCell.swift; sourceTree = "<group>"; };
+		D0E1EA321BD5BF13002861BF /* ChampInfoGenericCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampInfoGenericCell.swift; sourceTree = "<group>"; };
+		D0E1EA391BD5C628002861BF /* ChampSectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampSectionViewModel.swift; sourceTree = "<group>"; };
+		D0E1EA3B1BD5C9BF002861BF /* ChampItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampItemViewModel.swift; sourceTree = "<group>"; };
 		D0F27AEE1BC2FFE60037783D /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		D0F936CD1BC4071100496F10 /* ChampSelectCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampSelectCollectionViewController.swift; sourceTree = "<group>"; };
 		D0F936D41BC40DE100496F10 /* ChampSelectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampSelectCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -256,7 +262,9 @@
 			isa = PBXGroup;
 			children = (
 				D0E1EA221BD31677002861BF /* ChampInfoCollectionView */,
-				D04D4A3A1BC93FAA00DF6539 /* ChampInfoViewModel.swift */,
+				D04D4A3A1BC93FAA00DF6539 /* ChampPageViewModel.swift */,
+				D0E1EA391BD5C628002861BF /* ChampSectionViewModel.swift */,
+				D0E1EA3B1BD5C9BF002861BF /* ChampItemViewModel.swift */,
 			);
 			name = ChampPage;
 			sourceTree = "<group>";
@@ -373,7 +381,8 @@
 			isa = PBXGroup;
 			children = (
 				D04D4A381BC93DFC00DF6539 /* ChampInfoCollectionViewController.swift */,
-				D0E1EA271BD3169F002861BF /* ChampInfoTitleImageCollectionViewCell.swift */,
+				D0E1EA271BD3169F002861BF /* ChampInfoTitleImageCell.swift */,
+				D0E1EA321BD5BF13002861BF /* ChampInfoGenericCell.swift */,
 			);
 			name = ChampInfoCollectionView;
 			sourceTree = "<group>";
@@ -602,6 +611,7 @@
 				D00C196B1BC85CE2009F72F7 /* NetworkManager.swift in Sources */,
 				D07225291BC5ECB600E99D4E /* AFURLConnectionOperation.m in Sources */,
 				D07225241BC5ECB600E99D4E /* AFHTTPRequestOperation.m in Sources */,
+				D0E1EA3C1BD5C9BF002861BF /* ChampItemViewModel.swift in Sources */,
 				D07225301BC5ECB600E99D4E /* UIButton+AFNetworking.m in Sources */,
 				D07225271BC5ECB600E99D4E /* AFNetworkReachabilityManager.m in Sources */,
 				D04D4A391BC93DFC00DF6539 /* ChampInfoCollectionViewController.swift in Sources */,
@@ -610,12 +620,13 @@
 				D072252C1BC5ECB600E99D4E /* AFURLSessionManager.m in Sources */,
 				D072252A1BC5ECB600E99D4E /* AFURLRequestSerialization.m in Sources */,
 				D0C0FFCA1BC2FF0E00195777 /* AppDelegate.swift in Sources */,
+				D0E1EA331BD5BF13002861BF /* ChampInfoGenericCell.swift in Sources */,
 				D066AD5A1BC9EC0900D6BDA4 /* Stats.swift in Sources */,
 				D07225331BC5ECB600E99D4E /* UIRefreshControl+AFNetworking.m in Sources */,
 				D072252B1BC5ECB600E99D4E /* AFURLResponseSerialization.m in Sources */,
 				D0F936D51BC40DE100496F10 /* ChampSelectCollectionViewCell.swift in Sources */,
 				D07225311BC5ECB600E99D4E /* UIImageView+AFNetworking.m in Sources */,
-				D0E1EA281BD3169F002861BF /* ChampInfoTitleImageCollectionViewCell.swift in Sources */,
+				D0E1EA281BD3169F002861BF /* ChampInfoTitleImageCell.swift in Sources */,
 				D04D4A3F1BC9647C00DF6539 /* Skin.swift in Sources */,
 				D0F936DA1BC4132000496F10 /* Champ.swift in Sources */,
 				D072252F1BC5ECB600E99D4E /* UIAlertView+AFNetworking.m in Sources */,
@@ -626,11 +637,12 @@
 				D07225341BC5ECB600E99D4E /* UIWebView+AFNetworking.m in Sources */,
 				D066AD5C1BC9EC6200D6BDA4 /* Leveltip.swift in Sources */,
 				D036DB681BCA962E00FDAFD0 /* BasicInfo.swift in Sources */,
+				D0E1EA3A1BD5C628002861BF /* ChampSectionViewModel.swift in Sources */,
 				D0F936D81BC4128F00496F10 /* ChampManager.swift in Sources */,
 				D0F936CE1BC4071100496F10 /* ChampSelectCollectionViewController.swift in Sources */,
 				D07225261BC5ECB600E99D4E /* AFHTTPSessionManager.m in Sources */,
 				D072252E1BC5ECB600E99D4E /* UIActivityIndicatorView+AFNetworking.m in Sources */,
-				D04D4A3B1BC93FAA00DF6539 /* ChampInfoViewModel.swift in Sources */,
+				D04D4A3B1BC93FAA00DF6539 /* ChampPageViewModel.swift in Sources */,
 				D04D4A3D1BC9493E00DF6539 /* Spell.swift in Sources */,
 				D072252D1BC5ECB600E99D4E /* AFNetworkActivityIndicatorManager.m in Sources */,
 			);

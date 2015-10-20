@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChampInfoTitleImageCollectionViewCell: UICollectionViewCell {
+class ChampInfoTitleImageCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -50,6 +50,7 @@ class ChampInfoTitleImageCollectionViewCell: UICollectionViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.setContentHuggingPriority(1000, forAxis: .Vertical)
         
         return label
     }()

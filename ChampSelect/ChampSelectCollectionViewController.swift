@@ -110,7 +110,6 @@ class ChampSelectCollectionViewController: UICollectionViewController {
                 strongSelf.champs[index].skins[0].image = image
             })
         }
-        
     }
    
     //==========================================================================
