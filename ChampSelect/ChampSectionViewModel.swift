@@ -11,5 +11,5 @@ import Foundation
 class ChampSectionViewModel {
     //holds title + info content for each cell in a section
     var title = ""
-    var viewModels = [ChampItemViewModel]()
+    var items = [ChampItemViewModel]()
 }

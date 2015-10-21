@@ -11,6 +11,8 @@ import UIKit
 class ChampInfoCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
  
     var champ = Champ() //TODO: make this a view model object maybe
+    
+    var dataSource = ChampPageDataSource(champ: Champ())
     let titleCellIdentifier = "TitleCellIdentifier"
     let genericCellIdentifier = "GenericCellIdentifier"
     
@@ -19,6 +21,7 @@ class ChampInfoCollectionViewController: UICollectionViewController, UICollectio
         
         self.champ = champ
         navigationItem.title = champ.name
+        self.dataSource = ChampPageDataSource(champ: champ)
         
         self.getDefaultSkin()
     }
@@ -58,6 +61,8 @@ class ChampInfoCollectionViewController: UICollectionViewController, UICollectio
             dispatch_async(dispatch_get_main_queue(), { [weak self] () -> Void in
                 guard let strongSelf = self else { return }
                 strongSelf.champ.skins[0].image = image
+                strongSelf.dataSource.sections[0].items[0].image = image
+                strongSelf.collectionView?.reloadItemsAtIndexPaths([NSIndexPath(forItem: 0, inSection: 0)])
             })
         })
     }
@@ -66,37 +71,48 @@ class ChampInfoCollectionViewController: UICollectionViewController, UICollectio
     //==========================================================================
    
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1 //TODO: replace this with a real number
+        return dataSource.sections.count
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10 //TODO: replace this with a real number
+        return dataSource.sections[section].items.count
     }
+   
+    
+    
+    //TODO: make some header views to display section names
+    
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
        
-        switch(indexPath.item) {
+        let viewModel = dataSource.sections[indexPath.section].items[indexPath.item]
+       
+        switch(indexPath.section) {
         case 0:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(titleCellIdentifier, forIndexPath: indexPath) as! ChampInfoTitleImageCell
-            
-            cell.imageView.image = champ.skins[0].image
-            cell.titleLabel.text = champ.title
+           
+            cell.imageView.image = viewModel.image
+            cell.titleLabel.text = viewModel.title
             
             return cell
             break;
         default:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(genericCellIdentifier, forIndexPath: indexPath) as! ChampInfoGenericCell
-           
-            cell.titleLabel.text = "Ally Tips:"
-            cell.infoLabel.text = "\(champ.basicInfo.attack)"
+            
+            cell.titleLabel.text = viewModel.title
+            cell.infoLabel.text = viewModel.info
             
             //TODO: get item info from viewmodel
             
             return cell
             break;
         }
-        
     }
+    
+    //==========================================================================
+    // MARK: -
+    //==========================================================================
+
     
     //==========================================================================
     // MARK: - UICollectionViewDelegateFlowLayout
@@ -109,7 +125,7 @@ class ChampInfoCollectionViewController: UICollectionViewController, UICollectio
             return flowlayout.itemSize
             
         default:
-            return CGSize(width: flowlayout.itemSize.width, height: 44.0)
+            return CGSize(width: flowlayout.itemSize.width, height: 64.0)
         }
     }
 

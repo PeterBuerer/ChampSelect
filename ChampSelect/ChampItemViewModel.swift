@@ -11,4 +11,10 @@ import Foundation
 class ChampItemViewModel {
     var title = ""
     var info = ""
+    var image: UIImage?
+    
+    init(title: String, info: String) {
+        self.title = title
+        self.info = info
+    }
 }

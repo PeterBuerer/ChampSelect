@@ -68,12 +68,15 @@ class Spell {
             self.costType = costType
         }
         
-        if let effectWithNil = dictionary["effect"] as? [[Double]?] {
-            print("got effect")
-//            self.effect = effect
+        if var effectWithNull = dictionary["effect"] as? [AnyObject] {
+            print("got raw effect array")
             
-            //TODO: figure out how to make this work ?!
-            //although can just parse effectBurn to get same info if needed
+            effectWithNull.removeFirst()
+            
+            if let effectWithoutNull = effectWithNull as? [[Double]] {
+                print("got effect")
+                self.effect = effectWithoutNull
+            }
         }
         
         if let effectBurn = dictionary["effectBurn"] as? [String] {
