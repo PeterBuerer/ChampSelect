@@ -8,13 +8,21 @@
 
 import Foundation
 
+enum ItemSize {
+    case Small
+    case Medium
+    case Large
+}
+
 class ChampItemViewModel {
     var title = ""
     var info = ""
     var image: UIImage?
+    var size = ItemSize.Small
     
-    init(title: String, info: String) {
+    init(title: String, info: String, size: ItemSize) {
         self.title = title
         self.info = info
+        self.size = size
     }
 }

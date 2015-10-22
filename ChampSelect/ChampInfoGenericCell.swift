@@ -25,8 +25,8 @@ class ChampInfoGenericCell: UICollectionViewCell {
         ]
         
         NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(Margin)-[title]-(Padding)-[info]-(Margin)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(Margin)-[title]", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(Margin)-[info]", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
+        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(<=Margin)-[title]-(<=Margin)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
+        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(<=Margin)-[info]-(<=Margin)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
     }
  
     override func prepareForReuse() {
@@ -42,6 +42,7 @@ class ChampInfoGenericCell: UICollectionViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         
         return label
     }()
@@ -49,6 +50,7 @@ class ChampInfoGenericCell: UICollectionViewCell {
     lazy var infoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         
         return label
     }()

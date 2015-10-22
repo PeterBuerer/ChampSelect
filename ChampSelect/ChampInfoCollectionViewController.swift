@@ -120,12 +120,17 @@ class ChampInfoCollectionViewController: UICollectionViewController, UICollectio
  
     //TODO: revisit this later
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        switch(indexPath.item) {
-        case 0:
-            return flowlayout.itemSize
-            
-        default:
-            return CGSize(width: flowlayout.itemSize.width, height: 64.0)
+        let viewModel = dataSource.sections[indexPath.section].items[indexPath.item]
+        
+        switch(viewModel.size) {
+            case .Small:
+                 return smallCellSize
+                
+             case .Medium:
+                 return mediumCellSize
+                 
+             case .Large:
+                 return flowlayout.itemSize
         }
     }
 
@@ -133,13 +138,17 @@ class ChampInfoCollectionViewController: UICollectionViewController, UICollectio
     //==========================================================================
     // MARK: - Layout
     //==========================================================================
-  
+ 
+    static let itemWidth = (0.5 * 560.0)
+    let smallCellSize = CGSize(width: itemWidth, height: 44.0)
+    let mediumCellSize = CGSize(width: itemWidth, height: 64.0)
+    
     lazy var flowlayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         
         layout.minimumInteritemSpacing = 16.0;
         layout.minimumLineSpacing = 16.0;
-        layout.itemSize = CGSize(width: (0.5 * 560.0), height: 560.0) //TODO: got these numbers by looking at the size of a loading image skin; should probably do something better then this 
+        layout.itemSize = CGSize(width: itemWidth, height: 560.0) //TODO: got these numbers by looking at the size of a loading image skin; should probably do something better then this
         let insets = CGFloat(16.0)
         layout.sectionInset = UIEdgeInsets(top: insets, left: insets, bottom: insets, right: insets)
         
