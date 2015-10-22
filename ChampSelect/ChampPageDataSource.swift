@@ -24,7 +24,7 @@ class ChampPageDataSource {
         
         let descriptionModel = ChampSectionViewModel()
         descriptionModel.title = "Description"
-        descriptionModel.items.append(ChampItemViewModel(title: "", info: champ.blurb, size: .Large))
+        descriptionModel.items.append(ChampItemViewModel(title: "", info: champ.blurb, size: .Medium))
         
        
         let basicInfoModel = ChampSectionViewModel()
@@ -44,12 +44,20 @@ class ChampPageDataSource {
         let passiveModel = ChampSectionViewModel()
         passiveModel.title = "Passive"
         passiveModel.items.append(ChampItemViewModel(title: champ.passive.name, info: champ.passive.sanitizedDescription, size: .Medium))
+        
+        let abilityModel = ChampSectionViewModel()
+        abilityModel.title = "Abilities"
+        
+        for ability in champ.spells {
+            abilityModel.items.append(ChampItemViewModel(title: ability.name, info: ability.sanitizedToolTip, size: .Medium))
+        }
        
         
         sections.append(titleModel)
         sections.append(descriptionModel)
         sections.append(basicInfoModel)
         sections.append(passiveModel)
+        sections.append(abilityModel)
     }
 }
 

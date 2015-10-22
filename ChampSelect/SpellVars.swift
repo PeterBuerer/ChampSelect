@@ -17,7 +17,7 @@ class SpellVars {
     var ranksWith = ""
     
     init(dictionary: [String : AnyObject]) {
-        if let coefficient = dictionary["coef"] as? [Double] {
+        if let coefficient = dictionary["coeff"] as? [Double] {
             self.coefficient = coefficient
         }
         

@@ -49,6 +49,7 @@ class ChampSelectCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.lineBreakMode = .ByWordWrapping
         label.textAlignment = .Center
+        label.textColor = UIColor.whiteColor()
         
         return label
     }()

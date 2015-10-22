@@ -34,6 +34,7 @@
 		D07225321BC5ECB600E99D4E /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = D072251F1BC5ECB600E99D4E /* UIProgressView+AFNetworking.m */; settings = {ASSET_TAGS = (); }; };
 		D07225331BC5ECB600E99D4E /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = D07225211BC5ECB600E99D4E /* UIRefreshControl+AFNetworking.m */; settings = {ASSET_TAGS = (); }; };
 		D07225341BC5ECB600E99D4E /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = D07225231BC5ECB600E99D4E /* UIWebView+AFNetworking.m */; settings = {ASSET_TAGS = (); }; };
+		D091B64A1BD9147B00B5BF0C /* UIColor+ChampSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091B6491BD9147B00B5BF0C /* UIColor+ChampSelect.swift */; settings = {ASSET_TAGS = (); }; };
 		D0C0FFCA1BC2FF0E00195777 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C0FFC91BC2FF0E00195777 /* AppDelegate.swift */; };
 		D0C0FFD11BC2FF0E00195777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0C0FFD01BC2FF0E00195777 /* Assets.xcassets */; };
 		D0C0FFD41BC2FF0E00195777 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0C0FFD21BC2FF0E00195777 /* LaunchScreen.storyboard */; };
@@ -174,6 +175,7 @@
 		D07225211BC5ECB600E99D4E /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		D07225221BC5ECB600E99D4E /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		D07225231BC5ECB600E99D4E /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		D091B6491BD9147B00B5BF0C /* UIColor+ChampSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ChampSelect.swift"; sourceTree = "<group>"; };
 		D0C0FFC61BC2FF0E00195777 /* ChampSelect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChampSelect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C0FFC91BC2FF0E00195777 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0C0FFD01BC2FF0E00195777 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -322,6 +324,14 @@
 			path = "AFNetworking/UIKit+AFNetworking";
 			sourceTree = SOURCE_ROOT;
 		};
+		D091B6441BD9144500B5BF0C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D091B6491BD9147B00B5BF0C /* UIColor+ChampSelect.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		D0C0FFBD1BC2FF0E00195777 = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +364,7 @@
 				D00C19651BC85CC0009F72F7 /* Networking */,
 				D0F936D61BC4126A00496F10 /* Model */,
 				D0E1EA2C1BD322E1002861BF /* UI */,
+				D091B6441BD9144500B5BF0C /* Extensions */,
 				D036DB6D1BCAC29800FDAFD0 /* Legal */,
 			);
 			path = ChampSelect;
@@ -633,6 +644,7 @@
 				D07225251BC5ECB600E99D4E /* AFHTTPRequestOperationManager.m in Sources */,
 				D07225281BC5ECB600E99D4E /* AFSecurityPolicy.m in Sources */,
 				D066AD521BC9EB2E00D6BDA4 /* Passive.swift in Sources */,
+				D091B64A1BD9147B00B5BF0C /* UIColor+ChampSelect.swift in Sources */,
 				D066AD5E1BC9ECDC00D6BDA4 /* SpellVars.swift in Sources */,
 				D07225341BC5ECB600E99D4E /* UIWebView+AFNetworking.m in Sources */,
 				D066AD5C1BC9EC6200D6BDA4 /* Leveltip.swift in Sources */,

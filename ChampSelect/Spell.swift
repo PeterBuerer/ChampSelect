@@ -70,8 +70,7 @@ class Spell {
         
         if var effectWithNull = dictionary["effect"] as? [AnyObject] {
             print("got raw effect array")
-            
-            effectWithNull.removeFirst()
+            effectWithNull.removeFirst() //remove null value that is always at the beginning
             
             if let effectWithoutNull = effectWithNull as? [[Double]] {
                 print("got effect")
@@ -79,8 +78,9 @@ class Spell {
             }
         }
         
-        if let effectBurn = dictionary["effectBurn"] as? [String] {
-           self.effectBurn = effectBurn
+        if var effectBurn = dictionary["effectBurn"] as? [String] {
+            effectBurn.removeFirst() //remove empty string that is always at the beginning
+            self.effectBurn = effectBurn
         }
         
         if let key = dictionary["key"] as? String {

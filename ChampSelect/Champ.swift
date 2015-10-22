@@ -43,7 +43,7 @@ class Champ {
         }
         
         if let title = dictionary["title"] as? String {
-            self.title = title
+            self.title = title //TODO: uppercase first letter of this because sometimes it comes in lowercase
         }
         
         if let id = dictionary["id"] as? Int {

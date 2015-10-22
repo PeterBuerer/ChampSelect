@@ -39,7 +39,7 @@ class ChampInfoCollectionViewController: UICollectionViewController, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView?.backgroundColor = UIColor.whiteColor()
+        collectionView?.backgroundColor = UIColor.backgroundPrimary()
     }
    
     //==========================================================================
@@ -93,6 +93,7 @@ class ChampInfoCollectionViewController: UICollectionViewController, UICollectio
            
             cell.imageView.image = viewModel.image
             cell.titleLabel.text = viewModel.title
+            cell.titleLabel.backgroundColor = UIColor.cellPrimary()
             
             return cell
             break;
@@ -101,6 +102,7 @@ class ChampInfoCollectionViewController: UICollectionViewController, UICollectio
             
             cell.titleLabel.text = viewModel.title
             cell.infoLabel.text = viewModel.info
+            cell.backgroundColor = UIColor.cellPrimary()
             
             //TODO: get item info from viewmodel
             
@@ -140,8 +142,8 @@ class ChampInfoCollectionViewController: UICollectionViewController, UICollectio
     //==========================================================================
  
     static let itemWidth = (0.5 * 560.0)
-    let smallCellSize = CGSize(width: itemWidth, height: 44.0)
-    let mediumCellSize = CGSize(width: itemWidth, height: 64.0)
+    let smallCellSize = CGSize(width: itemWidth, height: 84.0)
+    let mediumCellSize = CGSize(width: itemWidth, height: 256.0)
     
     lazy var flowlayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()

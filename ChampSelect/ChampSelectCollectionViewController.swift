@@ -34,7 +34,7 @@ class ChampSelectCollectionViewController: UICollectionViewController {
      
         updateChamps()
         
-        collectionView?.backgroundColor = UIColor.whiteColor()
+        collectionView?.backgroundColor = UIColor.backgroundPrimary()
         navigationItem.title = "Champ Select"
     }
     

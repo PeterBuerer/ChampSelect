@@ -12,6 +12,9 @@ class ChampInfoGenericCell: UICollectionViewCell {
   
     override init(frame: CGRect) {
         super.init(frame: frame)
+       
+        layer.cornerRadius = 6.0
+        clipsToBounds = true
         
         contentView.addSubview(titleLabel)
         contentView.addSubview(infoLabel)
@@ -24,9 +27,9 @@ class ChampInfoGenericCell: UICollectionViewCell {
             "Margin": 16.0,
         ]
         
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(Margin)-[title]-(Padding)-[info]-(Margin)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(<=Margin)-[title]-(<=Margin)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(<=Margin)-[info]-(<=Margin)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
+        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(Margin)-[title]-(Margin)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
+        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(Margin)-[info]-(Margin)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
+        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(Margin)-[title]-(Padding)-[info]-(>=Margin)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
     }
  
     override func prepareForReuse() {
@@ -43,6 +46,7 @@ class ChampInfoGenericCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
+        label.font = UIFont.boldSystemFontOfSize(17.0)
         
         return label
     }()
@@ -51,6 +55,7 @@ class ChampInfoGenericCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
+        label.contentMode = .Top
         
         return label
     }()

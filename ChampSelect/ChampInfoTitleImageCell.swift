@@ -11,6 +11,9 @@ import UIKit
 class ChampInfoTitleImageCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
+       
+        layer.cornerRadius = 6.0
+        clipsToBounds = true
         
         contentView.addSubview(imageView)
         contentView.addSubview(titleLabel)
@@ -23,8 +26,9 @@ class ChampInfoTitleImageCell: UICollectionViewCell {
                        "Margin": 16.0,
                        ]
         
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[image]-(Padding)-[title]-(Padding)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
+        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[image][title]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
         NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[image]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
+        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[title]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
         
         titleLabel.centerXAnchor.constraintEqualToAnchor(contentView.centerXAnchor).active = true
     }
@@ -51,6 +55,10 @@ class ChampInfoTitleImageCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.setContentHuggingPriority(1000, forAxis: .Vertical)
+        
+        label.textAlignment = .Center
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 6.0
         
         return label
     }()
