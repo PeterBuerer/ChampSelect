@@ -49,7 +49,7 @@ class ChampPageDataSource {
         abilityModel.title = "Abilities"
         
         for ability in champ.spells {
-            abilityModel.items.append(ChampItemViewModel(title: ability.name, info: ability.sanitizedToolTip, size: .Medium))
+            abilityModel.items.append(ChampItemViewModel(title: ability.name, info: ability.sanitizedTooltip, size: .Medium))
         }
        
         

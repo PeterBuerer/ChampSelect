@@ -25,7 +25,7 @@ class Spell {
     var targetsSelf = false
     var rangeBurn = ""
     var resource = ""
-    var sanitizedToolTip = ""
+    var sanitizedTooltip = ""
     var tooltip = ""
     var spellVars = [SpellVars]()
     
@@ -107,25 +107,91 @@ class Spell {
         }
         
         if let resource = dictionary["resource"] as? String {
+            //TODO: Parse resource
+            
+            
             self.resource = resource
         }
-        
-        if let sanitizedToolTip = dictionary["sanitizedTooltip"] as? String {
-            self.sanitizedToolTip = sanitizedToolTip
-        }
-        
-        if let tooltip = dictionary["tooltip"] as? String {
-            self.tooltip = tooltip
-        }
-        
+       
         if let vars = dictionary["vars"] as? [[String : AnyObject]] {
             for spellVar in vars {
                 self.spellVars.append(SpellVars(dictionary: spellVar))
             }
         }
+        
+        if let sanitizedTooltip = dictionary["sanitizedTooltip"] as? String {
+            //parse keys from tooltip
+            let keysInTooltip = findKeysInTooltip(sanitizedTooltip)
+            let newTooltip = newTooltipWithValues(keysInTooltip, tip: sanitizedTooltip)
+            
+            
+            self.sanitizedTooltip = newTooltip
+        }
+        
+        if let tooltip = dictionary["tooltip"] as? String {
+            self.tooltip = tooltip
+        }
     }
     
     init() {
         
+    }
+    
+    
+    //==========================================================================
+    // MARK: - Parsing Variable Keys
+    //==========================================================================
+    
+    func findKeysInTooltip(tip: String) -> [String] {
+        var keys = [String]()
+        do {
+            let regex = try NSRegularExpression(pattern: "\\{\\{ ([a-z][0-9]) \\}\\}", options: .CaseInsensitive)
+            let matches = regex.matchesInString(tip, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, tip.characters.count))
+           
+            for match in matches {
+                let range = match.rangeAtIndex(1) //get the capture group that matched
+                let result = NSString(string: tip).substringWithRange(range) //get actual string of the group
+                keys.append(result)
+            }
+        }
+        catch let error as NSError {
+            print("Error parsing tooltip: \(error.localizedDescription)")
+        }
+        
+       return keys
+    }
+    
+    func findKeysInResource(resource: String) -> [String] {
+        var keys = [String]()
+        
+        
+        return keys
+    }
+    
+    //==========================================================================
+    // MARK: - Getting Associated Variable Values
+    //==========================================================================
+
+    func newTooltipWithValues(keys: [String], tip: String) -> String {
+        var newToolTip = tip
+        
+        for key in keys {
+            if key.characters.count > 0 {
+                if key[key.startIndex] == "e" {
+                    //effect
+                    print("Find effect var")
+                }
+                else if key[key.startIndex] == "a" || key[key.startIndex] == "f" {
+                    //check spell vars
+                    print("Find spell var")
+                }
+                else {
+                    print("Got an unknown key")
+                }
+                
+            }
+        }
+        
+        return newToolTip
     }
 }
