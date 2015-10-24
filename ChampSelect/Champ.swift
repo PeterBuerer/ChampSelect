@@ -72,6 +72,7 @@ class Champ {
         
         if let blurb = dictionary["blurb"] as? String {
             self.blurb = blurb
+            //TODO: make sure this is sanitized e.g. there shouldn't be <br> tags for champs like Kindred
         }
         
         if let allyTips = dictionary["allytips"] as? [String] {

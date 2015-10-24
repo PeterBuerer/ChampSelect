@@ -69,18 +69,21 @@ class Spell {
         }
         
         if var effectWithNull = dictionary["effect"] as? [AnyObject] {
-            print("got raw effect array")
+//            print("got raw effect array")
             effectWithNull.removeFirst() //remove null value that is always at the beginning
             
             if let effectWithoutNull = effectWithNull as? [[Double]] {
-                print("got effect")
+//                print("got effect")
                 self.effect = effectWithoutNull
             }
         }
         
         if var effectBurn = dictionary["effectBurn"] as? [String] {
-            effectBurn.removeFirst() //remove empty string that is always at the beginning
+//            effectBurn.removeFirst() //remove empty string that is always at the beginning
             self.effectBurn = effectBurn
+        }
+        else {
+            print("didn't get effectburn")
         }
         
         if let key = dictionary["key"] as? String {
@@ -173,17 +176,53 @@ class Spell {
     //==========================================================================
 
     func newTooltipWithValues(keys: [String], tip: String) -> String {
-        var newToolTip = tip
-        
+        var newTooltip = tip
+       
+        var spellVarsIndex = 0
         for key in keys {
             if key.characters.count > 0 {
                 if key[key.startIndex] == "e" {
                     //effect
-                    print("Find effect var")
+                    if let index = Int(String(key[key.startIndex.advancedBy(1)])), range = newTooltip.rangeOfString("{{ \(key) }}") where effectBurn.count > 0 { //get index number from string
+                        //fill in values
+                        newTooltip.replaceRange(range, with: effectBurn[index])
+                        
+                        //TODO: figure out what to put for champs like Lux who don't seem to have an effectBurn array
+                    }
                 }
                 else if key[key.startIndex] == "a" || key[key.startIndex] == "f" {
                     //check spell vars
-                    print("Find spell var")
+                    
+//                    for spellVar in spellVars {
+                    if spellVars.count > spellVarsIndex {
+                     
+                        let spellVar = spellVars[spellVarsIndex]
+                        
+                        if spellVar.key == key {
+                            if let range = newTooltip.rangeOfString("{{ \(key) }}") where spellVar.coefficient.count > 0 {
+                                var replacementString = "\(spellVar.coefficient[0]) \(spellVar.link)"
+                                
+                                if spellVar.coefficient.count > 1 {
+                                    //make a combined string of all the different values for the variable at its different levels
+                                    replacementString = ""
+                                    for coeff in spellVar.coefficient {
+                                        replacementString += "\(coeff)/"
+                                    }
+                                    
+                                    replacementString.removeAtIndex(replacementString.endIndex.predecessor()) //remove extra "/"
+                                }
+                                
+                                newTooltip.replaceRange(range, with: replacementString)
+                                //TODO: make an enum on SpellVars or something to return AP, AD etc for the given link
+                                
+                                ++spellVarsIndex //I think this may turn out to be what you might call "super fragile"
+                            }
+                            else {
+                                print("Couldn't replace key with value for: \(key) in \(self.name)")
+                            }
+                        }   
+                    }
+//                    }
                 }
                 else {
                     print("Got an unknown key")
@@ -192,6 +231,6 @@ class Spell {
             }
         }
         
-        return newToolTip
+        return newTooltip
     }
 }
