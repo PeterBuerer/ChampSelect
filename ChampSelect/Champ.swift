@@ -62,7 +62,7 @@ class Champ {
         
         if let skinsJSON = dictionary["skins"] as? [[String : AnyObject]] {
             for skin in skinsJSON {
-                    self.skins.append(Skin(dictionary: skin))
+                self.skins.append(Skin(dictionary: skin))
             }
             
             self.skins.sortInPlace { (left, right) -> Bool in

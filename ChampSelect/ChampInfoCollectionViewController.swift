@@ -111,10 +111,6 @@ class ChampInfoCollectionViewController: UICollectionViewController, UICollectio
         }
     }
     
-    //==========================================================================
-    // MARK: -
-    //==========================================================================
-
     
     //==========================================================================
     // MARK: - UICollectionViewDelegateFlowLayout
@@ -124,6 +120,7 @@ class ChampInfoCollectionViewController: UICollectionViewController, UICollectio
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let viewModel = dataSource.sections[indexPath.section].items[indexPath.item]
         
+        //TODO: call class method on cell to get content size
         switch(viewModel.size) {
             case .Small:
                  return smallCellSize
