@@ -10,5 +10,9 @@ The app itself is simply a champion library that provides information about a ch
 This application requires an API key. To acquire one, simply log on to [http://developer.riotgames.com](http://developer.riotgames.com) with your League of Legends account and register a key. If you are planning on running the app to do more than just test it out, please replace my API key with your own.
 
 ###Current Goals
-* Create UI for champ page to display info (currently it just displays a random skin)
 * Create a database for local storage (Core Data or straight SQLite)
+
+###Known Problems
+ * There are spell variables with "f" prefixes that are missing from the JSON. This is a bug on Riot's end.
+ * Currently not filtering what the spell vars output so things like "bonusattackdamage" are left in for now.
+ * Champ info cells aren't dynamically sized to fit content.
