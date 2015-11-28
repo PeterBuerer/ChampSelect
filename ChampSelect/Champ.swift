@@ -50,8 +50,6 @@ class Champ {
             self.idNumber = id
         }
         
-        print("Name: \(self.name) ID: \(self.idNumber)")
-        
         if let imageJSON = dictionary["image"], imageName = imageJSON["full"] as? String {
             self.imageName = imageName
         }
